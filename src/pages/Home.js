@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Hello({ setStoredToken }) {
+function Home({ setStoredToken }) {
   const [name, setName] = useState("");
   useEffect(() => {
     fetch("/api/v1/profile ", {
@@ -17,7 +17,7 @@ function Hello({ setStoredToken }) {
 
   return (
     <div>
-      Hello {name}
+      Home {name}
       <button
         onClick={() => {
           localStorage.setItem("token", "");
@@ -30,4 +30,4 @@ function Hello({ setStoredToken }) {
   );
 }
 
-export default Hello;
+export default Home;

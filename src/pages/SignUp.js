@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -6,15 +6,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = ({ setStoredToken }) => {
   const navigate = useNavigate();
-  const reference = useRef();
 
   const [first_name, setFirstName] = useState("");
-
   const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [email, setEmail] = useState("");
-  const [county, setCounty] = useState("");
   const [role, setRole] = useState("");
 
   const signUpFunctionality = (e) => {

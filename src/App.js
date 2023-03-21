@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SignUp from "./SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hello from "./Hello";
-import Login from "./Login";
+import Home from "../src/pages/Home";
+import Login from "../src/pages/Login";
+import SignUp from "../src/pages/SignUp";
+import SplashScreen from "../src/pages/SplashScreen";
 
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
@@ -17,18 +18,25 @@ function App() {
           {storedToken ? (
             <Route
               path="/"
-              element={<Hello setStoredToken={setStoredToken} />}
+              element={<Home setStoredToken={setStoredToken} />}
             />
           ) : (
-            <Route
-              path="/"
-              element={<SignUp setStoredToken={setStoredToken} />}
-            />
+            <>
+              <Route
+                path="/"
+                element={<SplashScreen setStoredToken={setStoredToken} />}
+              />
+
+              <Route
+                path="/signup"
+                element={<SignUp setStoredToken={setStoredToken} />}
+              />
+              <Route
+                path="/login"
+                element={<Login setStoredToken={setStoredToken} />}
+              />
+            </>
           )}
-          <Route
-            path="/login"
-            element={<Login setStoredToken={setStoredToken} />}
-          />
         </Routes>
       </Router>
     </div>
