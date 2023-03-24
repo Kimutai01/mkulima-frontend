@@ -10,7 +10,7 @@ const SignUp = ({ setStoredToken }) => {
   const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [national_id , setNationalId] = useState("");
+  const [national_id, setNationalId] = useState("");
   const [role, setRole] = useState("");
 
   const signUpFunctionality = (e) => {
@@ -57,7 +57,7 @@ const SignUp = ({ setStoredToken }) => {
 
   return (
     <>
-      <div className="mt-24">
+      <div className="pt-24">
         <div className="md:max-w-[50%] w-[80%] mx-auto py-6 sm:px-6 lg:px-8">
           <div className="mt-5 md:col-span-2 md:mt-0">
             <form onSubmit={signUpFunctionality}>
@@ -99,7 +99,7 @@ const SignUp = ({ setStoredToken }) => {
                     </label>
                     <div className="mt-1">
                       <input
-                        type={"integer"}
+                        type={"number"}
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="123456"
                         value={national_id}
@@ -110,16 +110,23 @@ const SignUp = ({ setStoredToken }) => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700">
-                     Role
+                      Role
                     </label>
                     <div className="mt-1">
-                      <input
-                        type={"text"}
+                      <select
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="Student"
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
-                      />
+                      >
+                        <option value="">Select a role</option>
+
+                        <option value="farmer">Farmer</option>
+                        <option value="supplier">Supplier</option>
+                        <option value="produce buyer">Produce Buyer</option>
+                        <option value="animal feeds buyer">
+                          Produce Buyer
+                        </option>
+                      </select>
                     </div>
                   </div>
 
@@ -148,7 +155,9 @@ const SignUp = ({ setStoredToken }) => {
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="********"
                         value={password_confirmation}
-                        onChange={(e) => setPasswordConfirmation(e.target.value)}
+                        onChange={(e) =>
+                          setPasswordConfirmation(e.target.value)
+                        }
                       />
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
@@ -11,9 +11,9 @@ const NavBar = ({ setStoredToken }) => {
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
   const [linkColor, setLinkColor] = useState("#1f2937");
+  const navigate = useNavigate();
 
-    useEffect(() => {
-      
+  useEffect(() => {
     const handleShadow = () => {
       if (window.scrollY >= 90) {
         setShadow(true);
@@ -73,6 +73,7 @@ const NavBar = ({ setStoredToken }) => {
               <li
                 className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "
                 onClick={() => {
+                  navigate("/");
                   localStorage.setItem("token", "");
                   setStoredToken("");
                 }}
@@ -144,6 +145,7 @@ const NavBar = ({ setStoredToken }) => {
                   <li
                     className="py-4 text-sm"
                     onClick={() => {
+                      navigate("/");
                       localStorage.setItem("token", "");
                       setStoredToken("");
                     }}
