@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -11,7 +10,7 @@ const SignUp = ({ setStoredToken }) => {
   const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [email, setEmail] = useState("");
+  const [national_id , setNationalId] = useState("");
   const [role, setRole] = useState("");
 
   const signUpFunctionality = (e) => {
@@ -27,7 +26,7 @@ const SignUp = ({ setStoredToken }) => {
           last_name,
           password,
           password_confirmation,
-          email,
+          national_id,
           role,
         },
       }),
@@ -36,6 +35,7 @@ const SignUp = ({ setStoredToken }) => {
       .then((data) => {
         if (data.jwt) {
           localStorage.setItem("token", data.jwt);
+          console.log(data);
           setStoredToken(data.jwt);
           navigate("/");
         } else {
@@ -71,7 +71,7 @@ const SignUp = ({ setStoredToken }) => {
                       <input
                         type={"text"}
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="John Doe"
+                        placeholder="John"
                         value={first_name}
                         onChange={(e) => setFirstName(e.target.value)}
                       />
@@ -86,7 +86,7 @@ const SignUp = ({ setStoredToken }) => {
                       <input
                         type={"text"}
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="John Doe"
+                        placeholder=" Doe"
                         value={last_name}
                         onChange={(e) => setLastName(e.target.value)}
                       />
@@ -94,29 +94,29 @@ const SignUp = ({ setStoredToken }) => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium te/xt-gray-700">
-                      Email
+                    <label className="block text-sm font-medium text-gray-700">
+                      National Id Number
                     </label>
                     <div className="mt-1">
                       <input
-                        type={"email"}
+                        type={"integer"}
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="johndoe@gmail.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="123456"
+                        value={national_id}
+                        onChange={(e) => setNationalId(e.target.value)}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium te/xt-gray-700">
-                      Role
+                    <label className="block text-sm font-medium text-gray-700">
+                     Role
                     </label>
                     <div className="mt-1">
                       <input
-                        type={"email"}
+                        type={"text"}
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="johndoe@gmail.com"
+                        placeholder="Student"
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
                       />
@@ -129,18 +129,13 @@ const SignUp = ({ setStoredToken }) => {
                     </label>
                     <div className="mt-1">
                       <input
-                        type={"password"}
+                        type="password"
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="********"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
-                    <p>
-                      <span className="text-sm text-gray-500">
-                        Password must be at least 6 characters long
-                      </span>
-                    </p>
                   </div>
 
                   <div>
@@ -153,16 +148,9 @@ const SignUp = ({ setStoredToken }) => {
                         className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="********"
                         value={password_confirmation}
-                        onChange={(e) =>
-                          setPasswordConfirmation(e.target.value)
-                        }
+                        onChange={(e) => setPasswordConfirmation(e.target.value)}
                       />
                     </div>
-                    <p>
-                      <span className="text-sm text-gray-500">
-                        Re-enter your password
-                      </span>
-                    </p>
                   </div>
                 </div>
 

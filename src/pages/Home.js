@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import NavBar from "../components/NavBar";
 function Home({ setStoredToken }) {
   const [name, setName] = useState("");
   useEffect(() => {
@@ -17,6 +17,7 @@ function Home({ setStoredToken }) {
 
   return (
     <div>
+      <NavBar />
       Home {name}
       <button
         onClick={() => {
