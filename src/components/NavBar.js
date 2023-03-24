@@ -6,16 +6,14 @@ import { FiPhoneCall } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import logo from "./images/logo.png";
 
-const NavBar = () => {
+const NavBar = ({ setStoredToken }) => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
   const [linkColor, setLinkColor] = useState("#1f2937");
 
-
- 
-  useEffect(() => {
-    
+    useEffect(() => {
+      
     const handleShadow = () => {
       if (window.scrollY >= 90) {
         setShadow(true);
@@ -40,11 +38,10 @@ const NavBar = () => {
       }
     >
       <div className="flex justify-between items-center w-full h-full py-4 px-2 2xl:px-16">
-       
-          <Link to="/">
-            <img src={logo} width={85} height={50} />
-          </Link>
-        
+        <Link to="/">
+          <img src={logo} width={85} height={50} />
+        </Link>
+
         <div>
           <ul className="hidden md:flex" style={{ color: `${linkColor}` }}>
             <Link to="/">
@@ -73,8 +70,14 @@ const NavBar = () => {
               </li>
             </Link>
             <Link to="/#contact">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Contact
+              <li
+                className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "
+                onClick={() => {
+                  localStorage.setItem("token", "");
+                  setStoredToken("");
+                }}
+              >
+                Logout
               </li>
             </Link>
           </ul>
@@ -138,7 +141,15 @@ const NavBar = () => {
                   <li className="py-4 text-sm">Blogs</li>
                 </Link>
                 <Link to="/#contact">
-                  <li className="py-4 text-sm">Contact</li>
+                  <li
+                    className="py-4 text-sm"
+                    onClick={() => {
+                      localStorage.setItem("token", "");
+                      setStoredToken("");
+                    }}
+                  >
+                    Logout
+                  </li>
                 </Link>
               </ul>
               <div className="pt-10">

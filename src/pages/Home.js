@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-function Home({ setStoredToken }) {
+
+import Maps from "../components/Maps";
+import { Link } from "react-router-dom";
+function Home() {
   const [name, setName] = useState("");
   useEffect(() => {
     fetch("/api/v1/profile ", {
@@ -16,17 +18,9 @@ function Home({ setStoredToken }) {
   }, []);
 
   return (
-    <div>
-      <NavBar />
-      Home {name}
-      <button
-        onClick={() => {
-          localStorage.setItem("token", "");
-          setStoredToken("");
-        }}
-      >
-        Log out
-      </button>
+    <div className="pt-24">
+      <Maps />
+      <Link to="/SelectCrop">Select Crop</Link>
     </div>
   );
 }

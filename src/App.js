@@ -4,6 +4,8 @@ import Home from "../src/pages/Home";
 import Login from "../src/pages/Login";
 import SignUp from "../src/pages/SignUp";
 import SplashScreen from "../src/pages/SplashScreen";
+import SelectCrop from "../src/pages/SelectCrop";
+import NavBar from "../src/components/NavBar";
 
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
@@ -14,12 +16,19 @@ function App() {
   return (
     <div>
       <Router>
+        <NavBar setStoredToken={setStoredToken} />
         <Routes>
           {storedToken ? (
-            <Route
-              path="/"
-              element={<Home setStoredToken={setStoredToken} />}
-            />
+            <>
+              <Route
+                path="/"
+                element={<Home setStoredToken={setStoredToken} />}
+              />
+              <Route
+                path="/SelectCrop"
+                element={<SelectCrop setStoredToken={setStoredToken} />}
+              />
+            </>
           ) : (
             <>
               <Route
