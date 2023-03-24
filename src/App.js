@@ -12,6 +12,7 @@ import FarmerNavBar from "./components/Navbars/FarmerNavBar";
 import MySupplies from "./pages/Supplier/MySupplies";
 import EachOfBestCropToGrow from "./pages/Farmer/EachOfBestCropToGrow";
 import MySelectedCrops from "./pages/Farmer/MySelectedCrops";
+import EachOfMySelectedCrop from "./pages/Farmer/EachOfMySelectedCrop";
 
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
@@ -72,6 +73,11 @@ function App() {
                 path="/MySelectedCrops"
                 element={<MySelectedCrops loggedInUserId={loggedInUserId} />}
               />
+              <Route
+                path="/EachOfMySelectedCrop/:id"
+                element={<EachOfMySelectedCrop />}
+              />
+
               <Route
                 path="/MySupplies"
                 element={<MySupplies loggedInUserId={loggedInUserId} />}
