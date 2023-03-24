@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
-import { FiPhoneCall } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
-import logo from "./images/logo.png";
+import logo from "../images/logo.png";
 
-const NavBar = ({ setStoredToken }) => {
+const SupplierNavBar = ({ setStoredToken }) => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
@@ -14,6 +11,9 @@ const NavBar = ({ setStoredToken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+   
+      
+
     const handleShadow = () => {
       if (window.scrollY >= 90) {
         setShadow(true);
@@ -49,27 +49,19 @@ const NavBar = ({ setStoredToken }) => {
                 Home
               </li>
             </Link>
-            <Link to="/#about">
+            <Link to="/mySupplies">
               <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                About
+                My Supplies
               </li>
             </Link>
-            <Link to="/#skills">
+
+            <Link to="/AddSuppliedInput">
               <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Skills
+                Add Input Supply
               </li>
             </Link>
-            <Link to="/#projects">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Projects
-              </li>
-            </Link>
-            <Link to="/#blogs">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Blogs
-              </li>
-            </Link>
-            <Link to="/#contact">
+
+            <Link to="/">
               <li
                 className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "
                 onClick={() => {
@@ -118,9 +110,7 @@ const NavBar = ({ setStoredToken }) => {
             </div>
 
             <div className="border-b border-gray-300 my-4">
-              <p className="w-[85%] md:w-[90%] py-4">
-                Let's build something together
-              </p>
+              <p className="w-[85%] md:w-[90%] py-4">Welcome</p>
             </div>
           </div>
           <div>
@@ -129,19 +119,16 @@ const NavBar = ({ setStoredToken }) => {
                 <Link to="/">
                   <li className="py-4 text-sm">Home</li>
                 </Link>
-                <Link to="/#about">
-                  <li className="py-4 text-sm">About</li>
+
+                <Link to="/mySupplies">
+                  <li className="py-4 text-sm">My Supplies</li>
                 </Link>
-                <Link to="/#skills">
-                  <li className="py-4 text-sm">Skills</li>
+
+                <Link to="/AddSuppliedInput">
+                  <li className="py-4 text-sm">Add Input Supply</li>
                 </Link>
-                <Link to="/#projects">
-                  <li className="py-4 text-sm">Projects</li>
-                </Link>
-                <Link to="/#blogs">
-                  <li className="py-4 text-sm">Blogs</li>
-                </Link>
-                <Link to="/#contact">
+
+                <Link to="/">
                   <li
                     className="py-4 text-sm"
                     onClick={() => {
@@ -154,54 +141,6 @@ const NavBar = ({ setStoredToken }) => {
                   </li>
                 </Link>
               </ul>
-              <div className="pt-10">
-                <p className="uppercase tracking-widest text-[#5651e5]">
-                  Let's Connect{" "}
-                </p>
-                <div className="flex items-center justify-between w-full  my-4 sm:w-[80%] w-100">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer  hover:scale-110 ease-in   duration-300">
-                    <a
-                      href="https://www.linkedin.com/in/michael-munavu-0b0b1b1b9/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaLinkedin />
-                    </a>
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in   duration-300">
-                    <a
-                      href="https://github.com/MICHAELMUNAVU83"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaGithub />
-                    </a>
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in   duration-300">
-                    <a
-                      href="https://twitter.com/MichaelTrance1"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaTwitter />
-                    </a>
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in   duration-300">
-                    <a rel="noopener noreferrer" href="tel:0740769596">
-                      <FiPhoneCall />
-                    </a>
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in   duration-300">
-                    <a
-                      href="https://wa.me/254740769596"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaWhatsapp />
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -210,4 +149,4 @@ const NavBar = ({ setStoredToken }) => {
   );
 };
 
-export default NavBar;
+export default SupplierNavBar;

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Login({ setStoredToken }) {
-  const [email, setEmail] = useState("");
+  const [national_id, setNationalId] = useState("");
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ function Login({ setStoredToken }) {
       },
       body: JSON.stringify({
         user: {
-          email,
+          national_id,
           password,
         },
       }),
@@ -43,9 +43,9 @@ function Login({ setStoredToken }) {
         }
       });
 
-    setPassword("");
+    setNationalId("");
 
-    setEmail("");
+    setPassword("");
   };
   return (
     <>
@@ -60,14 +60,14 @@ function Login({ setStoredToken }) {
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Email
+                    National ID Number
                   </label>
                   <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="number"
+                    value={national_id}
+                    onChange={(e) => setNationalId(e.target.value)}
                     className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    placeholder="email"
+                    placeholder="123456789"
                     required=""
                   />
                 </div>

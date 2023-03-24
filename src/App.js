@@ -3,11 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Farmer/Home";
 import SupplierHome from "./pages/Supplier/SupplierHome";
 import AddSuppliedInput from "./pages/Supplier/AddSuppliedInput";
+import SupplierNavBar from "./components/Navbars/SupplierNavBar";
 import Login from "../src/pages/Login";
 import SignUp from "../src/pages/SignUp";
 import SplashScreen from "../src/pages/SplashScreen";
 import SelectCrop from "./pages/Farmer/SelectCrop";
-import NavBar from "../src/components/NavBar";
+import FarmerNavBar from "./components/Navbars/FarmerNavBar";
+import MySupplies from "./pages/Supplier/MySupplies";
+import EachOfBestCropToGrow from "./pages/Farmer/EachOfBestCropToGrow";
+import MySelectedCrops from "./pages/Farmer/MySelectedCrops";
 
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
@@ -35,7 +39,16 @@ function App() {
   return (
     <div>
       <Router>
-        <NavBar setStoredToken={setStoredToken} />
+        {storedToken && (
+          <>
+            {loggedInUserRole === "farmer" && (
+              <FarmerNavBar setStoredToken={setStoredToken} />
+            )}
+            {loggedInUserRole === "supplier" && (
+              <SupplierNavBar setStoredToken={setStoredToken} />
+            )}
+          </>
+        )}
         <Routes>
           {storedToken ? (
             <>
@@ -56,8 +69,22 @@ function App() {
                 element={<SelectCrop setStoredToken={setStoredToken} />}
               />
               <Route
+                path="/MySelectedCrops"
+                element={<MySelectedCrops loggedInUserId={loggedInUserId} />}
+              />
+              <Route
+                path="/MySupplies"
+                element={<MySupplies loggedInUserId={loggedInUserId} />}
+              />
+              <Route
                 path="/AddSuppliedInput"
                 element={<AddSuppliedInput loggedInUserId={loggedInUserId} />}
+              />
+              <Route
+                path="/EachOfBestCropToGrow/:id"
+                element={
+                  <EachOfBestCropToGrow loggedInUserId={loggedInUserId} />
+                }
               />
             </>
           ) : (
