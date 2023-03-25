@@ -122,7 +122,7 @@ const SignUp = ({ setStoredToken }) => {
 
                         <option value="farmer">Farmer</option>
                         <option value="supplier">Supplier</option>
-                        <option value="produce buyer">Produce Buyer</option>
+                        <option value="produce_buyer">Produce Buyer</option>
                         <option value="animal feeds buyer">
                           Animal Feeds Buyer
                         </option>

@@ -15,7 +15,9 @@ import MySelectedCrops from "./pages/Farmer/MySelectedCrops";
 import EachOfMySelectedCrop from "./pages/Farmer/EachOfMySelectedCrop";
 import AddProductsForSale from "./pages/Farmer/AddProductsForSale";
 import MySoldProducts from "./pages/Farmer/MySoldProducts";
-
+import ProduceBuyerHome from "./pages/ProduceBuyer/ProduceBuyerHome";
+import AllProducts from "./pages/ProduceBuyer/AllProducts";
+import ProduceBuyerNavbar from "./components/Navbars/ProduceBuyerNavbar";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -50,6 +52,9 @@ function App() {
             {loggedInUserRole === "supplier" && (
               <SupplierNavBar setStoredToken={setStoredToken} />
             )}
+            {loggedInUserRole === "produce_buyer" && (
+              <ProduceBuyerNavbar setStoredToken={setStoredToken} />
+            )}
           </>
         )}
         <Routes>
@@ -65,6 +70,13 @@ function App() {
                 <Route
                   path="/"
                   element={<SupplierHome setStoredToken={setStoredToken} />}
+                />
+              )}
+
+              {loggedInUserRole === "produce_buyer" && (
+                <Route
+                  path="/"
+                  element={<ProduceBuyerHome setStoredToken={setStoredToken} />}
                 />
               )}
               <Route
@@ -101,6 +113,11 @@ function App() {
               <Route
                 path="/AddProductsForSale"
                 element={<AddProductsForSale loggedInUserId={loggedInUserId} />}
+              />
+
+              <Route
+                path="/AllProducts"
+                element={<AllProducts loggedInUserId={loggedInUserId} />}
               />
             </>
           ) : (
