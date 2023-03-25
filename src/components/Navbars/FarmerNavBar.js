@@ -53,6 +53,17 @@ const FarmerNavBar = ({ setStoredToken }) => {
               </li>
             </Link>
 
+            <Link to="/AddProductsForSale">
+              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
+                Add Products For Sale
+              </li>
+            </Link>
+            <Link to="/MySoldProducts">
+              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
+                My Products
+              </li>
+            </Link>
+
             <Link to="/">
               <li
                 className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "
@@ -114,6 +125,14 @@ const FarmerNavBar = ({ setStoredToken }) => {
 
                 <Link to="/MySelectedCrops">
                   <li className="py-4 text-sm">My Selected Crops</li>
+                </Link>
+
+                <Link to="/AddProductsForSale">
+                  <li className="py-4 text-sm">Add Products For Sale</li>
+                </Link>
+
+                <Link to="/MySoldProducts">
+                  <li className="py-4 text-sm">My Produce</li>
                 </Link>
 
                 <Link to="/">

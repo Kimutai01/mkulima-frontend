@@ -13,6 +13,8 @@ import MySupplies from "./pages/Supplier/MySupplies";
 import EachOfBestCropToGrow from "./pages/Farmer/EachOfBestCropToGrow";
 import MySelectedCrops from "./pages/Farmer/MySelectedCrops";
 import EachOfMySelectedCrop from "./pages/Farmer/EachOfMySelectedCrop";
+import AddProductsForSale from "./pages/Farmer/AddProductsForSale";
+import MySoldProducts from "./pages/Farmer/MySoldProducts";
 
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
@@ -83,6 +85,10 @@ function App() {
                 element={<MySupplies loggedInUserId={loggedInUserId} />}
               />
               <Route
+                path="/MySoldProducts"
+                element={<MySoldProducts loggedInUserId={loggedInUserId} />}
+              />
+              <Route
                 path="/AddSuppliedInput"
                 element={<AddSuppliedInput loggedInUserId={loggedInUserId} />}
               />
@@ -91,6 +97,10 @@ function App() {
                 element={
                   <EachOfBestCropToGrow loggedInUserId={loggedInUserId} />
                 }
+              />
+              <Route
+                path="/AddProductsForSale"
+                element={<AddProductsForSale loggedInUserId={loggedInUserId} />}
               />
             </>
           ) : (

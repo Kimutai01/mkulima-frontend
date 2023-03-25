@@ -4,16 +4,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
-const AddSuppliedInput = ({ loggedInUserId }) => {
+const AddProductsForSale = ({ loggedInUserId }) => {
   console.log(loggedInUserId);
   const navigate = useNavigate();
   const reference = useRef();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [product_image, setProductImage] = useState("");
-  const [type_of_supply, setTypeOfSupply] = useState("");
   const [price_per_kg, setPricePerKg] = useState("");
-  const [crop_for, setCropFor] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
 
@@ -34,7 +32,7 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
 
   const AddSupplyFunctionality = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/input_supplies", {
+    fetch("http://127.0.0.1:3000/sold_products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,9 +41,7 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
         name: name,
         description: description,
         product_image: product_image,
-        type_of_supply: type_of_supply,
         price_per_kg: price_per_kg,
-        crop_for: crop_for,
         location: location,
         contact: contact,
         user_id: Number(loggedInUserId),
@@ -67,7 +63,7 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
             });
           });
         } else {
-          toast.success("Your input supply has been added!", {
+          toast.success("Your product  has been added to the market!", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,
@@ -90,26 +86,6 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
           <form onSubmit={AddSupplyFunctionality}>
             <div className="shadow sm:overflow-hidden sm:rounded-md">
               <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-                <div>
-                  <label className="block text-sm font-medium te/xt-gray-700">
-                    Type of Supply (Fertilizer, Seed, etc)
-                  </label>
-                  <div className="mt-1">
-                    <select
-                      className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      value={type_of_supply}
-                      onChange={(e) => setTypeOfSupply(e.target.value)}
-                    >
-                      <option value="">Select</option>
-
-                      <option value="fertilizer">Fertilizer</option>
-                      <option value="seed">Seed</option>
-                      <option value="pesticide">Pesticide</option>
-                      <option value="herbicide">Herbicide</option>
-                    </select>
-                  </div>
-                </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Product Image
@@ -201,20 +177,6 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
 
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Which Crop is this Supply for?
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type={"text"}
-                      className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Maize"
-                      value={crop_for}
-                      onChange={(e) => setCropFor(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium te/xt-gray-700">
                     Where are you located?
                   </label>
                   <div className="mt-1">
@@ -260,4 +222,4 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
   );
 };
 
-export default AddSuppliedInput;
+export default AddProductsForSale;
