@@ -36,7 +36,7 @@ const FarmerNavBar = ({ setStoredToken }) => {
     >
       <div className="flex justify-between items-center w-full h-full py-4 px-2 2xl:px-16">
         <Link to="/">
-          <img src={logo} width={85} height={50} />
+          <img src={logo} width={85} height={50} alt="logo" />
         </Link>
 
         <div>
@@ -108,7 +108,7 @@ const FarmerNavBar = ({ setStoredToken }) => {
           <div>
             <div className="flex justify-between items-center w-full">
               <Link to="/">
-                <img src={logo} width={87} height={35} />
+                <img src={logo} width={87} height={35} alt="logo" />
               </Link>
               <div
                 onClick={handleNav}

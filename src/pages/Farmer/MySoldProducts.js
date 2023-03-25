@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 const MySoldProducts = ({ loggedInUserId }) => {
   const [my_sold_products, setMySoldProducts] = useState([]);
   const removeFromMySoldProducts = (id) => {
