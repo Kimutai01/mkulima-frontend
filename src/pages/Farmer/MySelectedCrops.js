@@ -20,7 +20,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
         console.log(data);
         setMySelectedCrops(data);
       });
-  }, [mySelectedCrops]);
+  }, [mySelectedCrops, loggedInUserId]);
 
   return (
     <div className="pt-24">

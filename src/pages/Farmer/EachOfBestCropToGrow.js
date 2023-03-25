@@ -10,7 +10,7 @@ const EachOfBestCropToGrow = ({ loggedInUserId }) => {
       .then((data) => {
         setEachCrop(data);
       });
-  }, []);
+  }, [id]);
 
   const addToMySelectedCrops = (e) => {
     e.preventDefault();
