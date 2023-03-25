@@ -9,7 +9,7 @@ const MySoldProducts = ({ loggedInUserId }) => {
       .then((response) => response.json())
       .then((data) =>
         setMySoldProducts(
-         my_sold_products.filter((sold_product) => sold_product.id !== id)
+          my_sold_products.filter((sold_product) => sold_product.id !== id)
         )
       );
   };
@@ -39,7 +39,7 @@ const MySoldProducts = ({ loggedInUserId }) => {
           </div>
         ))
       ) : (
-        <p>You have not selected any crops yet</p>
+        <p>You have no produce in the market yet</p>
       )}
     </div>
   );

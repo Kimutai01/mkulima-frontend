@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import logo from "../images/logo.png";
 
-const FarmerNavBar = ({ setStoredToken }) => {
+const AnimalFeedsBuyerNavbar = ({ setStoredToken }) => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
@@ -41,32 +41,15 @@ const FarmerNavBar = ({ setStoredToken }) => {
 
         <div>
           <ul className="hidden md:flex" style={{ color: `${linkColor}` }}>
-            <Link to="/MySelectedCrops">
+            <Link to="/">
               <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                My Selected Crops
+                Home
               </li>
             </Link>
 
-            <Link to="/AddProductsForSale">
+            <Link to="/AllAnimalFeeds">
               <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Add Products For Sale
-              </li>
-            </Link>
-            <Link to="/MySoldProducts">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                My Products
-              </li>
-            </Link>
-
-            <Link to="/AddAnimalFeeds">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Add Animal Organic Products Feed
-              </li>
-            </Link>
-
-            <Link to="/MyAnimalFeeds">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                My Animal Organic Feed
+                See All Animal Feeds
               </li>
             </Link>
 
@@ -129,25 +112,8 @@ const FarmerNavBar = ({ setStoredToken }) => {
                   <li className="py-4 text-sm">Home</li>
                 </Link>
 
-                <Link to="/MySelectedCrops">
-                  <li className="py-4 text-sm">My Selected Crops</li>
-                </Link>
-
-                <Link to="/AddProductsForSale">
-                  <li className="py-4 text-sm">Add Products For Sale</li>
-                </Link>
-
-                <Link to="/MySoldProducts">
-                  <li className="py-4 text-sm">My Produce</li>
-                </Link>
-                <Link to="/AddAnimalFeeds">
-                  <li className="py-4 text-sm">
-                    Add Animal Organic Products Feed
-                  </li>
-                </Link>
-
-                <Link to="/MyAnimalFeeds">
-                  <li className="py-4 text-sm">My Animal Organic Feed</li>
+                <Link to="/AllAnimalFeeds">
+                  <li className="py-4 text-sm">See All Animal Feeds</li>
                 </Link>
 
                 <Link to="/">
@@ -171,4 +137,4 @@ const FarmerNavBar = ({ setStoredToken }) => {
   );
 };
 
-export default FarmerNavBar;
+export default AnimalFeedsBuyerNavbar;

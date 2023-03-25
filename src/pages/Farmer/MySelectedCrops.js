@@ -34,7 +34,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
               className="bg-blue-400 p-4"
               to={`/EachOfMySelectedCrop/${crop.id}`}
             >
-              See more about {crop.plantable_crop.name}
+              Learn Everything about {crop.plantable_crop.name}
             </Link>
 
             <button

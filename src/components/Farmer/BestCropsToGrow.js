@@ -12,13 +12,18 @@ const BestCropsToGrow = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       {bestCrops.map((crop) => (
         <div>
           <p>{crop.name}</p>
-          <Link to={`/EachOfBestCropToGrow/${crop.id}`}>
-            See more about {crop.name}
-          </Link>
+          <p>Cost of production: {crop.cost_to_produce_kg}</p>
+          <p>Price per kg: {crop.price_per_kg}</p>
+          <p>Maturation time: {crop.maturity_period}</p>
+          <button className="bg-red-500 p-4 mt-4">
+            <Link to={`/EachOfBestCropToGrow/${crop.id}`}>
+              See more about {crop.name}
+            </Link>
+          </button>
         </div>
       ))}
     </div>

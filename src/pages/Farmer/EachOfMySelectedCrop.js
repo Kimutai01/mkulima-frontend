@@ -39,8 +39,22 @@ const EachOfMySelectedCrop = () => {
       EachOfMySelectedCrop
       {my_selected_crop && (
         <div>
-          <p>{my_selected_crop.name}</p>
-          <p>{my_selected_crop.site_selection} </p>
+          <p> Name of the crop: {my_selected_crop.name}</p>
+          <p> Cost of production: {my_selected_crop.cost_to_produce_kg}</p>
+          <p> Price per kg: {my_selected_crop.price_per_kg}</p>
+          <p>Site Selection: {my_selected_crop.site_selection}</p>
+          <p>Maturation time: {my_selected_crop.maturity_period}</p>
+          <p>Land preparation: {my_selected_crop.land_preparation}</p>
+          <p>Pre Planting: {my_selected_crop.pre_planting}</p>
+          <p>Planting: {my_selected_crop.planting}</p>
+          <p>varieties: {my_selected_crop.varieties}</p>
+          <p>Post planting: {my_selected_crop.post_planting}</p>
+          <p>Water management: {my_selected_crop.water_management}</p>
+          <p>crop management: {my_selected_crop.crop_management}</p>
+          <p>Harvesting: {my_selected_crop.harvesting}</p>
+          <p>Post Harvesting: {my_selected_crop.post_harvesting_handling}</p>
+
+
         </div>
       )}
       <p className="text-red-500">

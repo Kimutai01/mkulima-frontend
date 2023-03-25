@@ -1,19 +1,13 @@
 import React from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, { Marker } from "react-map-gl";
-import { CgGym } from "react-icons/cg";
-import { HiLocationMarker } from "react-icons/hi";
+import { GiPlantsAndAnimals } from "react-icons/gi";
 const Maps = () => {
   return (
     <div className="bg-black h-full pb-10">
       <section className="flex flex-col my-2 justify-start ml-10 pt-10">
-        <h1 className="flex text-4xl   text-red-600 font-extrabold flex-row">
-          {" "}
-          <CgGym className="text-4xl mx-2  text-red-600" /> Our Location
-        </h1>
-
         <h1 className="  text-white font-bold text-4xl">
-          HILTON TOWERS, 6TH FLOOR
+          Kenyan map with planted crops
         </h1>
       </section>
       <Map
@@ -28,7 +22,7 @@ const Maps = () => {
         }}
         initialViewState={{
           latitude: 0.1768696,
-          longitude:  37.9083264,
+          longitude: 37.9083264,
           zoom: 5,
         }}
         mapboxAccessToken={
@@ -42,8 +36,10 @@ const Maps = () => {
           offsetLeft={-20}
           offsetTop={-10}
         >
-          <p className="bg-red-600 font-bold px-2 py-1 text-white rounded-xl">Zero 22 Gym</p>
-          <HiLocationMarker className="text-5xl text-red-600" />
+          <p className="bg-red-600 font-bold px-2 py-1 text-white rounded-xl">
+            Plants
+          </p>
+          <GiPlantsAndAnimals className="text-5xl text-red-600" />
         </Marker>
       </Map>
     </div>

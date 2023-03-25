@@ -60,7 +60,7 @@ const SelectCrop = () => {
           </select>
         </div>
       </div>
-      <button>Get the Best Crops to grow in this area</button>
+      <button className="bg-red-400 p-4 my-8">Get the Best Crops to grow in this area</button>
       <BestCropsToGrow />
     </div>
   );

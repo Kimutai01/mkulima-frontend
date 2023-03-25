@@ -37,6 +37,15 @@ const EachOfBestCropToGrow = ({ loggedInUserId }) => {
   return (
     <div className="pt-24">
       <p>{eachCrop.name}</p>
+      <p>Cost of production: {eachCrop.cost_to_produce_kg}</p>
+      <p>Price per kg: {eachCrop.price_per_kg}</p>
+      <p>Maturation time: {eachCrop.maturity_period}</p>
+      <p>Land preparation: {eachCrop.land_preparation}</p>
+      <p>Planting: {eachCrop.planting}</p>
+      <p className="text-red-500">
+        To learn more about growing {eachCrop.name}, add it to the list of the
+        crops you want to grow.
+      </p>
       <button
         className="bg-red-500 p-4 mt-4"
         onClick={(e) => addToMySelectedCrops(e)}
