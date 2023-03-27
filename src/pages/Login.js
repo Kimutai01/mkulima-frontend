@@ -63,7 +63,7 @@ function Login({ setStoredToken }) {
                     National ID Number
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     value={national_id}
                     onChange={(e) => setNationalId(e.target.value)}
                     className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
