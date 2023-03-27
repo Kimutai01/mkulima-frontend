@@ -27,12 +27,22 @@ const SelectCrop = () => {
     <div className="pt-24">
       SelectCrop
       <div>
-        <label className="block text-sm font-medium te/xt-gray-700">
-          Select a County
-        </label>
-        <div className="mt-1">
+        <h1 className="text-xl font-bold text-center   text-[#3B841F] md:text-5xl ">
+          Plan
+        </h1>
+
+        <div className="flex justify-center gap-4">
+          <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
+          <p className="mb-2 text-gray-400 text-xl">................</p>
+          <p className="text-3xl  text-gray-400">Choose your Crop</p>
+          <p className="mb-2 text-gray-400 text-xl">................</p>
+          <p className="text-3xl  text-gray-400">Choose your Crop</p>
+        </div>
+      </div>
+      <div className="flex justify-center gap-4">
+        <div className="mt-1 w-[300px]">
           <select
-            className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            className=" border border-[#3B841F] bg-white  text-sm rounded-lg block w-full p-2 focus:border-[#3B841F]"
             value={county}
             onChange={(e) => setCounty(e.target.value)}
           >
@@ -42,25 +52,32 @@ const SelectCrop = () => {
             ))}
           </select>
         </div>
-      </div>
-      <div>
-        <label className="block text-sm font-medium te/xt-gray-700">
-          Select a Constituency
-        </label>
-        <div className="mt-1">
-          <select
-            className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            value={constituency}
-            onChange={(e) => setConstituency(e.target.value)}
-          >
-            <option value="">Select a constituency</option>
-            {constituencies.map((constituency) => (
-              <option value={constituency.name}>{constituency.name}</option>
-            ))}
-          </select>
+        <div>
+          <div className="mt-1 w-[300px]">
+            <select
+              className=" border border-[#3B841F]  text-sm rounded-lg bg-white block w-full p-2 focus:border-[#3B841F]"
+              value={constituency}
+              onChange={(e) => setConstituency(e.target.value)}
+            >
+              <option value="">Select a constituency</option>
+              {constituencies.map((constituency) => (
+                <option value={constituency.name}>{constituency.name}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
-      <button className="bg-red-400 p-4 my-8">Get the Best Crops to grow in this area</button>
+      <div className="flex justify-center gap-4">
+        <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-4 justify-center place-content-center flex text-md">
+          Get Crops that Would do well here
+        </button>
+      </div>
+      <p
+        className=" my-2  w-[90%] mx-auto"
+        style={{
+          borderBottom: "12px solid  #3B841F",
+        }}
+      ></p>
       <BestCropsToGrow />
     </div>
   );
