@@ -21,13 +21,16 @@ const EachOfMySelectedCrop = () => {
   return (
     <div className="pt-24">
       <div>
-        <h1 className="text-xl font-bold text-center   text-[#3B841F] md:text-5xl ">
-          Plan
-        </h1>
+        {stage === "site selection" && <div className="flex justify-center">Plan</div>}
+        {stage === "planting" && <div className="flex justify-center">Plant</div>}
+        {stage === "harvesting" && <div className="flex justify-center">Harvest</div>}
+        {stage === "management" && <div className="flex justify-center">Grow</div>}
 
         <div className="flex justify-center gap-4">
           <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
-          <p className="mb-2 text-gray-400 text-[#3B841F]  text-xl">................</p>
+          <p className="mb-2 text-gray-400 text-[#3B841F]  text-xl">
+            ................
+          </p>
           <p className="text-3xl  text-[#3B841F]">Choose your Crop</p>
           <p className="mb-2 text-gray-400 text-xl">................</p>
           <p className="text-3xl  text-[#3B841F]">Advisory</p>
