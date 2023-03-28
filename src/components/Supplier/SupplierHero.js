@@ -1,14 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import splash from "../images/splash.png";
+import arrow from "../images/arrow.png";
 const SupplierHero = () => {
   return (
-    <div className="h-screen w-screen bg-gray-100 flex flex-col justify-center items-center">
-      Info about how they can make omoney from the platform by supplying
-      fertilizers , seeds . (Add image as well, maybe background)
-      <button className="bg-red-500 p-4 mt-12">
-        <Link to="/AddSuppliedInput">Add Input that You want to Supply</Link>
-      </button>
+    <div className=" px-8">
+      <div className="flex justify-center gap-12">
+        <div className="w-1/2 text-center flex justify-center flex-col">
+          <h1 className="text-[#3B841F] text-5xl my-4">
+            Sell Agricultural Input supplies
+          </h1>
+
+          <p className="font-italic">
+            Sell your agricultural inputs directly to farmers
+          </p>
+          <p className="my-4 w-[80%] mx-auto">
+            You can sell your agricultural inputs directly to farmers. You can
+            choose from a wide variety of inputs and sell them at the best
+            prices. You can provide fertilizers, seeds, and other agricultural
+            inputs.
+          </p>
+
+          <p className="my-4 w-[80%] mx-auto">
+            You will be helping farmers grow their crops and produce the best
+            quality of crops. So why wait? Start exploring our website
+          </p>
+
+          <div className="flex justify-center">
+            <Link to="/AddSuppliedInput">
+              <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
+                Add Input
+                <div className="flex mt-2 ">
+                  <img src={arrow} alt="arrow" className="h-[10px]" />
+                  <img src={arrow} alt="arrow" className="h-[10px]" />
+                </div>
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div>
+          <img src={splash} alt="splash" className="h-[100vh]" />
+        </div>
+      </div>
     </div>
   );
 };

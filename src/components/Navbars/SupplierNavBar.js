@@ -11,9 +11,10 @@ const SupplierNavBar = ({ setStoredToken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-   
-      
-
+    setNavBg("#ecf0f3");
+    setLinkColor("#1f2937");
+  }, []);
+  useEffect(() => {
     const handleShadow = () => {
       if (window.scrollY >= 90) {
         setShadow(true);
@@ -39,7 +40,7 @@ const SupplierNavBar = ({ setStoredToken }) => {
     >
       <div className="flex justify-between items-center w-full h-full py-4 px-2 2xl:px-16">
         <Link to="/">
-          <img src={logo}  className="w-16 h-16"  alt="logo" />
+          <img src={logo} className="w-16 h-16" alt="logo" />
         </Link>
 
         <div>

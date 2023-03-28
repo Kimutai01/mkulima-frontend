@@ -12,7 +12,6 @@ import four from "../images/four.png";
 const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
-  const [suggested_inputs, setSuggestedInputs] = useState([]);
   const [stage, setStage] = useState("site selection");
   useEffect(() => {
     fetch(`http://127.0.0.1:3000/selected_crops/${id}`)

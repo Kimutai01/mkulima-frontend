@@ -11,6 +11,11 @@ const FarmerNavBar = ({ setStoredToken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setNavBg("#ecf0f3");
+    setLinkColor("#1f2937");
+  }, []);
+
+  useEffect(() => {
     const handleShadow = () => {
       if (window.scrollY >= 90) {
         setShadow(true);
