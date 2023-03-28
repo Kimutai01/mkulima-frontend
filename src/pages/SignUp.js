@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = ({ setStoredToken }) => {
   const navigate = useNavigate();
+  const reference = useRef();
 
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -12,6 +13,21 @@ const SignUp = ({ setStoredToken }) => {
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [national_id, setNationalId] = useState("");
   const [role, setRole] = useState("");
+  const [profile_picture, setProfilePicture] = useState("");
+  const uploadProductPicture = (files) => {
+    const formData = new FormData();
+
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "e2e6z2lx");
+    fetch("https://api.cloudinary.com/v1_1/dakiak4mc/image/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProfilePicture(data.secure_url);
+      });
+  };
 
   const signUpFunctionality = (e) => {
     e.preventDefault();
@@ -28,6 +44,7 @@ const SignUp = ({ setStoredToken }) => {
           password_confirmation,
           national_id,
           role,
+          profile_picture,
         },
       }),
     })
@@ -63,6 +80,52 @@ const SignUp = ({ setStoredToken }) => {
             <form onSubmit={signUpFunctionality}>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Crop Image
+                    </label>
+                    <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                      <div className="space-y-1 text-center">
+                        <svg
+                          className="mx-auto h-12 w-12 text-gray-400"
+                          stroke="currentColor"
+                          fill="none"
+                          viewBox="0 0 48 48"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <div className="text-sm text-gray-600" ref={reference}>
+                          <label
+                            for="file-upload"
+                            className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span className="text-[#3B841F]">
+                              Add your product's image
+                            </span>
+                            <input
+                              id="file-upload"
+                              name="file-upload"
+                              accept="image/*"
+                              type="file"
+                              className="sr-only"
+                              onChange={(e) =>
+                                uploadProductPicture(e.target.files)
+                              }
+                            />
+                          </label>
+                        </div>
+                        <p className="text-xs text-gray-500">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <div>
                     <label className="block text-sm font-medium te/xt-gray-700">
                       First Name

@@ -25,7 +25,16 @@ const MySelectedCrops = ({ loggedInUserId }) => {
 
   return (
     <div className="pt-24">
-     
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-[#3B841F] text-5xl">My Selected Crops</h1>
+
+        <p>
+          Here are the crops you have selected to grow. You can remove them from
+          this list if you change your mind. To read more about a crop, click on
+          the "Get Started" button.
+        </p>
+      </div>
+
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {mySelectedCrops.map((crop) => (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">

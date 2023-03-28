@@ -23,6 +23,8 @@ import MyAnimalFeeds from "./pages/Farmer/MyAnimalFeeds";
 import AllAnimalFeeds from "./pages/AnimalFeedsBuyer/AllAnimalFeeds";
 import AnimalFeedsBuyerHome from "./pages/AnimalFeedsBuyer/AnimalFeedsBuyerHome";
 import AnimalFeedsBuyerNavBar from "./components/Navbars/AnimalFeedsBuyerNavBar";
+import InputsForCrop from "./pages/Farmer/InputsForCrop";
+import InputsForManagement from "./pages/Farmer/InputsForManagement";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -124,6 +126,11 @@ function App() {
               <Route
                 path="/MyAnimalFeeds"
                 element={<MyAnimalFeeds loggedInUserId={loggedInUserId} />}
+              />
+              <Route path="/InputsForCrop/:name" element={<InputsForCrop />} />
+              <Route
+                path="/InputsForManagement/:name"
+                element={<InputsForManagement />}
               />
               <Route
                 path="/AllAnimalFeeds"

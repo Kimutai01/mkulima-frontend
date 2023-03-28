@@ -47,20 +47,9 @@ const FarmerNavBar = ({ setStoredToken }) => {
               </li>
             </Link>
 
-            <Link to="/AddProductsForSale">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Add Products For Sale
-              </li>
-            </Link>
             <Link to="/MySoldProducts">
               <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
                 My Products
-              </li>
-            </Link>
-
-            <Link to="/AddAnimalFeeds">
-              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
-                Add Animal Organic Products Feed
               </li>
             </Link>
 

@@ -81,6 +81,14 @@ const AddProductsForSale = ({ loggedInUserId }) => {
   };
   return (
     <div className="pt-24">
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-[#3B841F] text-5xl">Add your products for sale here.</h1>
+
+        <p>
+          Make some money by selling your products here. Buyers will be able to
+          contact you directly and help your business grow .
+        </p>
+      </div>
       <div className="md:max-w-[50%] w-[80%] mx-auto py-6 sm:px-6 lg:px-8">
         <div className="mt-5 md:col-span-2 md:mt-0">
           <form onSubmit={AddSupplyFunctionality}>
@@ -88,7 +96,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
               <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
-                    Product Image
+                    Crop Image
                   </label>
                   <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                     <div className="space-y-1 text-center">
@@ -111,7 +119,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                           for="file-upload"
                           className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
-                          <span>Add your product's image</span>
+                          <span className="text-[#3B841F]">Add your product's image</span>
                           <input
                             id="file-upload"
                             name="file-upload"
@@ -132,7 +140,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Name of the Supply
+                    Name of Crop
                   </label>
                   <div className="mt-1">
                     <input
@@ -147,7 +155,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
 
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Description of the Supply
+                    Description of the Crop You are Selling
                   </label>
                   <div className="mt-1">
                     <textarea
@@ -208,9 +216,9 @@ const AddProductsForSale = ({ loggedInUserId }) => {
               <div className="bg-gray-50 flex justify-center px-4 py-3 text-right sm:px-6">
                 <button
                   type="submit"
-                  className=" text-center rounded-md border border-transparent  bg-blue-700 py-2 px-4  font-bold text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className=" text-center rounded-md border border-transparent  bg-[#3B841F] py-2 px-6  font-bold text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Add Supply
+                  Add Product to The Market
                 </button>
               </div>
             </div>

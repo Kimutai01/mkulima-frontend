@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { HiDownload } from "react-icons/hi";
+import Planting from "../../components/Farmer/Planting";
+import SiteSelection from "../../components/Farmer/SiteSelection";
+import Harvesting from "../../components/Farmer/Harvesting";
+import Management from "../../components/Farmer/Management";
 const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
   const [suggested_inputs, setSuggestedInputs] = useState([]);
+  const [stage, setStage] = useState("site selection");
   useEffect(() => {
     fetch(`http://127.0.0.1:3000/selected_crops/${id}`)
       .then((response) => response.json())
@@ -12,28 +17,6 @@ const EachOfMySelectedCrop = () => {
         setMySelectedCrop(data.plantable_crop);
       });
   }, [id]);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:3000/input_supplies")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setSuggestedInputs(data);
-      });
-  }, []);
-
-  const displaySuggestedInputs =
-    suggested_inputs &&
-    my_selected_crop &&
-    suggested_inputs.map(
-      (input) =>
-        input.crop_for === my_selected_crop.name && (
-          <div>
-            <p>{input.name}</p>
-            <p>{input.description}</p>
-          </div>
-        )
-    );
 
   return (
     <div className="pt-24">
@@ -44,10 +27,10 @@ const EachOfMySelectedCrop = () => {
 
         <div className="flex justify-center gap-4">
           <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
+          <p className="mb-2 text-gray-400 text-[#3B841F]  text-xl">................</p>
+          <p className="text-3xl  text-[#3B841F]">Choose your Crop</p>
           <p className="mb-2 text-gray-400 text-xl">................</p>
-          <p className="text-3xl  text-gray-400">Choose your Crop</p>
-          <p className="mb-2 text-gray-400 text-xl">................</p>
-          <p className="text-3xl  text-gray-400">Advisory</p>
+          <p className="text-3xl  text-[#3B841F]">Advisory</p>
         </div>
       </div>
 
@@ -119,16 +102,62 @@ const EachOfMySelectedCrop = () => {
         </div>
       )}
 
-      <div className="flex justify-center gap-32 border-b-2 border-[#3B841F] w-[80%] mx-auto my-12">
-        <p className="text-3xl text-[#3B841F] ">Site Selection</p>
-        <p className="text-3xl text-[#3B841F] ">Site Selection</p>
-        <p className="text-3xl text-[#3B841F] ">Site Selection</p>
-        <p className="text-3xl text-[#3B841F] ">Site Selection</p>
+      <div className="flex justify-center gap-32 border-b-2 border-[#3B841F] w-[80%] mx-auto my-4">
+        <p
+          className={
+            stage === "site selection"
+              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-3xl  cursor-pointer  font-bold px-4 py-2"
+          }
+          onClick={() => setStage("site selection")}
+        >
+          Site Selection
+        </p>
+        <p
+          className={
+            stage === "planting"
+              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-3xl  cursor-pointer font-bold px-4 py-2 "
+          }
+          onClick={() => setStage("planting")}
+        >
+          Planting
+        </p>
+        <p
+          className={
+            stage === "management"
+              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-3xl  cursor-pointer font-bold px-4 py-2 "
+          }
+          onClick={() => setStage("management")}
+        >
+          Management
+        </p>
+        <p
+          className={
+            stage === "harvesting"
+              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-3xl  cursor-pointer font-bold px-4 py-2"
+          }
+          onClick={() => setStage("harvesting")}
+        >
+          Harvesting
+        </p>
       </div>
-      <p className="text-red-500">
-        The following are the suggested inputs for {my_selected_crop.name}
-      </p>
-      {displaySuggestedInputs}
+      <div>
+        {stage === "site selection" && (
+          <SiteSelection my_selected_crop={my_selected_crop} />
+        )}
+        {stage === "planting" && (
+          <Planting my_selected_crop={my_selected_crop} />
+        )}
+        {stage === "management" && (
+          <Management my_selected_crop={my_selected_crop} />
+        )}
+        {stage === "harvesting" && (
+          <Harvesting my_selected_crop={my_selected_crop} />
+        )}
+      </div>
     </div>
   );
 };

@@ -22,8 +22,16 @@ const Step4 = () => {
         </p>
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">
+          <IoMdCheckmarkCircle className="text-[#7DD959] text-2xl" />
+          <p>
+          Connect with Animal Feed Suppliers to sell any spoilt  produce
+            <p className="text-start">reducing wastage and post harvest losses</p>
+          </p>
+        </p>
+
+        <p className="my-4 w-[80%] mx-auto flex gap-2">
           <IoMdCheckmarkCircle className=" text-[#7DD959] text-2xl" />
-          <p>Connect with Animal Feed Suppliers to sell any spoiled produce</p>
+          <p></p>
         </p>
 
         <div className="flex justify-center">
