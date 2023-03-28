@@ -5,6 +5,9 @@ const SelectCrop = () => {
   const [constituencies, setConstituencies] = useState([]);
   const [county, setCounty] = useState("");
   const [constituency, setConstituency] = useState("");
+  const [selectedCountyName, setSelectedCountyName] = useState("");
+  const [selectedCountyId, setSelectedCountyId] = useState("");
+  const [selectionDone, setSelectionDone] = useState(false);
 
   useEffect(() => {
     fetch("http://127.0.0.1:3000/counties")
@@ -18,6 +21,9 @@ const SelectCrop = () => {
     fetch(`http://127.0.0.1:3000/counties/${county}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
+        setSelectedCountyName(data.county.name);
+        setSelectedCountyId(data.county.id);
         if (data.constituencies) {
           setConstituencies(data.constituencies);
         }
@@ -25,7 +31,6 @@ const SelectCrop = () => {
   }, [county]);
   return (
     <div className="pt-24">
-      SelectCrop
       <div>
         <h1 className="text-xl font-bold text-center   text-[#3B841F] md:text-5xl ">
           Plan
@@ -68,7 +73,14 @@ const SelectCrop = () => {
         </div>
       </div>
       <div className="flex justify-center gap-4">
-        <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-4 justify-center place-content-center flex text-md">
+        <button
+          className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-4 justify-center place-content-center flex text-md"
+          onClick={() => {
+            if (county) {
+              setSelectionDone(true);
+            }
+          }}
+        >
           Get Crops that Would do well here
         </button>
       </div>
@@ -78,7 +90,12 @@ const SelectCrop = () => {
           borderBottom: "12px solid  #3B841F",
         }}
       ></p>
-      <BestCropsToGrow />
+      {selectionDone && (
+        <BestCropsToGrow
+          selectedCounty={selectedCountyId}
+          selectedCountyName={selectedCountyName}
+        />
+      )}
     </div>
   );
 };
