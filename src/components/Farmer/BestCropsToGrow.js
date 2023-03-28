@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import greenarrow from "../images/greenarrow.png";
-const BestCropsToGrow = ({ selectedCountyName, selectedCountyId }) => {
+import { BsBookmarkCheckFill } from "react-icons/bs";
+const BestCropsToGrow = ({
+  selectedCountyName,
+  selectedCountyId,
+  loggedInUserId,
+}) => {
   const [bestCrops, setBestCrops] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://127.0.0.1:3000/first_three_crops")
@@ -12,6 +19,27 @@ const BestCropsToGrow = ({ selectedCountyName, selectedCountyId }) => {
         setBestCrops(data);
       });
   }, []);
+
+  const addToMySelectedCrops = (id) => {
+    fetch("http://127.0.0.1:3000/selected_crops", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: Number(loggedInUserId),
+        plantable_crop_id: Number(id),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        setTimeout(() => {
+          navigate("/MySelectedCrops");
+        }, 2000);
+      });
+  };
 
   return (
     <div>
@@ -33,10 +61,11 @@ const BestCropsToGrow = ({ selectedCountyName, selectedCountyId }) => {
             />
             <div className="p-2 flex flex-col gap-2">
               <div className="flex justify-between mx-8">
-                <p className="text-3xl text-white font-bold">Name:</p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
-                  {crop.name}
-                </p>
+                <p className="text-3xl text-white font-bold">{crop.name}</p>
+                <BsBookmarkCheckFill
+                  className="text-white text-3xl cursor-pointer hover:scale-110 transform transition duration-500 ease-in-out"
+                  onClick={() => addToMySelectedCrops(crop.id)}
+                />
               </div>
 
               <div className="flex justify-between mx-8">
@@ -62,26 +91,6 @@ const BestCropsToGrow = ({ selectedCountyName, selectedCountyId }) => {
                   {crop.price_per_kg} KES
                 </p>
               </div>
-            </div>
-
-            <div className="flex justify-center">
-              <Link to={`/EachOfBestCropToGrow/${crop.id}`}>
-                <button className="bg-white gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-4 justify-center place-content-center flex text-md">
-                  Learn More
-                  <div className="flex mt-2 ">
-                    <img
-                      src={greenarrow}
-                      alt="greenarrow"
-                      className="h-[10px]"
-                    />
-                    <img
-                      src={greenarrow}
-                      alt="greenarrow"
-                      className="h-[10px]"
-                    />
-                  </div>
-                </button>
-              </Link>
             </div>
           </div>
         ))}

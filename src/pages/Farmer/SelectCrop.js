@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BestCropsToGrow from "../../components/Farmer/BestCropsToGrow";
-const SelectCrop = () => {
+import one from "../images/one.png";
+const SelectCrop = ({ loggedInUserId }) => {
   const [counties, setCounties] = useState([]);
   const [constituencies, setConstituencies] = useState([]);
   const [county, setCounty] = useState("");
@@ -30,11 +31,14 @@ const SelectCrop = () => {
       });
   }, [county]);
   return (
-    <div className="pt-24">
+    <div className="pt-16">
       <div>
-        <h1 className="text-xl font-bold text-center   text-[#3B841F] md:text-5xl ">
-          Plan
-        </h1>
+        <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
+          <h1 className="justify-center flex items-center">
+            Plan
+          </h1>
+          <img src={one} alt="one" className="w-20" />
+        </div>
 
         <div className="flex justify-center gap-4">
           <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
@@ -94,6 +98,7 @@ const SelectCrop = () => {
         <BestCropsToGrow
           selectedCounty={selectedCountyId}
           selectedCountyName={selectedCountyName}
+          loggedInUserId={loggedInUserId}
         />
       )}
     </div>

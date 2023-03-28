@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,9 @@ const AddProductsForSale = ({ loggedInUserId }) => {
   const [price_per_kg, setPricePerKg] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const uploadProductPicture = (files) => {
     const formData = new FormData();
@@ -82,7 +85,9 @@ const AddProductsForSale = ({ loggedInUserId }) => {
   return (
     <div className="pt-24">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-[#3B841F] text-5xl">Add your products for sale here.</h1>
+        <h1 className="text-[#3B841F] text-5xl">
+          Add your products for sale here.
+        </h1>
 
         <p>
           Make some money by selling your products here. Buyers will be able to
@@ -119,7 +124,9 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                           for="file-upload"
                           className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
-                          <span className="text-[#3B841F]">Add your product's image</span>
+                          <span className="text-[#3B841F]">
+                            Add your product's image
+                          </span>
                           <input
                             id="file-upload"
                             name="file-upload"

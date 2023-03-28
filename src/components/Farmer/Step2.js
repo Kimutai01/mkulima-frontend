@@ -2,6 +2,7 @@ import React from "react";
 import step2 from "../images/step2.png";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import arrow from "../images/arrow.png";
+import two from "../images/two.png";
 
 import { Link } from "react-router-dom";
 const Step2 = () => {
@@ -9,6 +10,8 @@ const Step2 = () => {
     <div className="flex justify-center gap-12">
       <div className="w-1/2 text-center flex justify-center flex-col">
         <h1 className="text-[#3B841F] text-5xl my-4">Step 2 : Plant</h1>
+
+        <img src={two} alt="two" className="h-64 w-32 mx-auto" />
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">
           <IoMdCheckmarkCircle className="text-[#7DD959] text-2xl" />

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef , useEffect} from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,9 @@ const AddAnimalFeeds = ({ loggedInUserId }) => {
   const [price_per_kg, setPricePerKg] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const uploadProductPicture = (files) => {
     const formData = new FormData();

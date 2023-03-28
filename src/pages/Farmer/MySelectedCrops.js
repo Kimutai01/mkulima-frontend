@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import greenarrow from "../images/greenarrow.png";
+import { BsFillBookmarkXFill } from "react-icons/bs";
 const MySelectedCrops = ({ loggedInUserId }) => {
   const [mySelectedCrops, setMySelectedCrops] = useState([]);
   const removeFromMySelectedCrops = (id) => {
@@ -22,6 +23,9 @@ const MySelectedCrops = ({ loggedInUserId }) => {
         setMySelectedCrops(data);
       });
   }, [mySelectedCrops, loggedInUserId]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="pt-24">
@@ -45,10 +49,13 @@ const MySelectedCrops = ({ loggedInUserId }) => {
             />
             <div className="p-2 flex flex-col gap-2">
               <div className="flex justify-between mx-8">
-                <p className="text-3xl text-white font-bold">Name:</p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
+                <p className="text-3xl text-white font-bold">
                   {crop.plantable_crop.name}
                 </p>
+                <BsFillBookmarkXFill
+                  onClick={() => removeFromMySelectedCrops(crop.id)}
+                  className="text-white text-3xl cursor-pointer hover:scale-110 transform transition duration-500 ease-in-out"
+                />
               </div>
 
               <div className="flex justify-between mx-8">
@@ -71,7 +78,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
               <div className="flex justify-between mx-8">
                 <p className="text-3xl text-white font-bold">Price Per Kg:</p>
                 <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
-                  {crop.price_per_kg} KES
+                  {crop.plantable_crop.price_per_kg} KES
                 </p>
               </div>
             </div>
@@ -95,12 +102,6 @@ const MySelectedCrops = ({ loggedInUserId }) => {
                 </button>
               </Link>
             </div>
-            <button
-              className="bg-red-500 rounded-b-3xl p-4 text-white font-semibold mt-2"
-              onClick={() => removeFromMySelectedCrops(crop.id)}
-            >
-              Remove from the list of the crops I want to grow
-            </button>
           </div>
         ))}
       </div>

@@ -5,6 +5,10 @@ import Planting from "../../components/Farmer/Planting";
 import SiteSelection from "../../components/Farmer/SiteSelection";
 import Harvesting from "../../components/Farmer/Harvesting";
 import Management from "../../components/Farmer/Management";
+import one from "../images/one.png";
+import two from "../images/two.png";
+import three from "../images/three.png";
+import four from "../images/four.png";
 const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
@@ -17,14 +21,37 @@ const EachOfMySelectedCrop = () => {
         setMySelectedCrop(data.plantable_crop);
       });
   }, [id]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="pt-24">
+    <div className="pt-16">
       <div>
-        {stage === "site selection" && <div className="flex justify-center">Plan</div>}
-        {stage === "planting" && <div className="flex justify-center">Plant</div>}
-        {stage === "harvesting" && <div className="flex justify-center">Harvest</div>}
-        {stage === "management" && <div className="flex justify-center">Grow</div>}
+        {stage === "site selection" && (
+          <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
+            <h1 className="justify-center flex items-center">Plan</h1>
+            <img src={one} alt="one" className="w-20" />
+          </div>
+        )}
+        {stage === "planting" && (
+          <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
+            <h1 className="justify-center flex items-center">Plant</h1>
+            <img src={two} alt="two" className="w-20" />
+          </div>
+        )}
+        {stage === "harvesting" && (
+          <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
+            <h1 className="justify-center flex items-center">Harvest</h1>
+            <img src={four} alt="four" className="w-20" />
+          </div>
+        )}
+        {stage === "management" && (
+          <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
+            <h1 className="justify-center flex items-center">Grow</h1>
+            <img src={three} alt="three" className="w-20" />
+          </div>
+        )}
 
         <div className="flex justify-center gap-4">
           <p className="text-3xl text-[#3B841F] ">Choose your Location</p>

@@ -12,6 +12,9 @@ const InputsForCrop = () => {
         setSuggestedInputs(data);
       });
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const displaySuggestedInputs =
     suggested_inputs &&

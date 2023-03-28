@@ -3,11 +3,14 @@ import step1 from "../images/step1.png";
 import arrow from "../images/arrow.png";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
+import one from "../images/one.png";
 const Step1 = () => {
   return (
     <div className="flex justify-center gap-12">
       <div className="w-1/2 text-center flex justify-center flex-col">
         <h1 className="text-[#3B841F] text-5xl my-4">Step 1 : Plan</h1>
+
+        <img src={one} alt="one" className="h-64 w-32 mx-auto" />
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">
           <IoMdCheckmarkCircle className="text-[#7DD959] text-2xl" />
@@ -28,7 +31,7 @@ const Step1 = () => {
           <p>Get Weather and Soil Advisory from Verified Data</p>
         </p>
 
-        <p className="my-4 w-[80%] mx-auto flex gap-2">
+        <p className="my-2 w-[80%] mx-auto flex gap-2">
           <IoMdCheckmarkCircle className="text-[#7DD959] text-2xl" />
           <p>Get Approximate Production Costs</p>
         </p>

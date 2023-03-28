@@ -91,7 +91,7 @@ const ProduceBuyerNavbar = ({ setStoredToken }) => {
           <div>
             <div className="flex justify-between items-center w-full">
               <Link to="/">
-                <img src={logo} width={87} height={35} alt="logo" />
+                <img src={logo}  className="w-16 h-16"  alt="logo" />
               </Link>
               <div
                 onClick={handleNav}

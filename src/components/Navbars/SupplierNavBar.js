@@ -39,7 +39,7 @@ const SupplierNavBar = ({ setStoredToken }) => {
     >
       <div className="flex justify-between items-center w-full h-full py-4 px-2 2xl:px-16">
         <Link to="/">
-          <img src={logo} width={85} height={50} alt="logo" />
+          <img src={logo}  className="w-16 h-16"  alt="logo" />
         </Link>
 
         <div>

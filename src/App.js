@@ -10,7 +10,6 @@ import SplashScreen from "../src/pages/SplashScreen";
 import SelectCrop from "./pages/Farmer/SelectCrop";
 import FarmerNavBar from "./components/Navbars/FarmerNavBar";
 import MySupplies from "./pages/Supplier/MySupplies";
-import EachOfBestCropToGrow from "./pages/Farmer/EachOfBestCropToGrow";
 import MySelectedCrops from "./pages/Farmer/MySelectedCrops";
 import EachOfMySelectedCrop from "./pages/Farmer/EachOfMySelectedCrop";
 import AddProductsForSale from "./pages/Farmer/AddProductsForSale";
@@ -82,7 +81,6 @@ function App() {
                   element={<SupplierHome setStoredToken={setStoredToken} />}
                 />
               )}
-
               {loggedInUserRole === "produce_buyer" && (
                 <Route
                   path="/"
@@ -99,7 +97,12 @@ function App() {
               )}
               <Route
                 path="/SelectCrop"
-                element={<SelectCrop setStoredToken={setStoredToken} />}
+                element={
+                  <SelectCrop
+                    setStoredToken={setStoredToken}
+                    loggedInUserId={loggedInUserId}
+                  />
+                }
               />
               <Route
                 path="/MySelectedCrops"
@@ -109,12 +112,10 @@ function App() {
                 path="/EachOfMySelectedCrop/:id"
                 element={<EachOfMySelectedCrop />}
               />
-
               <Route
                 path="/AddAnimalFeeds"
                 element={<AddAnimalFeeds loggedInUserId={loggedInUserId} />}
               />
-
               <Route
                 path="/MySupplies"
                 element={<MySupplies loggedInUserId={loggedInUserId} />}
@@ -141,16 +142,9 @@ function App() {
                 element={<AddSuppliedInput loggedInUserId={loggedInUserId} />}
               />
               <Route
-                path="/EachOfBestCropToGrow/:id"
-                element={
-                  <EachOfBestCropToGrow loggedInUserId={loggedInUserId} />
-                }
-              />
-              <Route
                 path="/AddProductsForSale"
                 element={<AddProductsForSale loggedInUserId={loggedInUserId} />}
               />
-
               <Route
                 path="/AllProducts"
                 element={<AllProducts loggedInUserId={loggedInUserId} />}
