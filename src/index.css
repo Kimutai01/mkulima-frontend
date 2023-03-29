@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Contrail+One&family=Lato:wght@300;400;700&family=PT+Sans:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,400&family=Roboto:wght@300;400;500;700&display=swap");
+
+/* applying font to the whole app */
+#root {
+  font-family: "Sen", sans-serif;
+}

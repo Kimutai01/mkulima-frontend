@@ -41,7 +41,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
 
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {mySelectedCrops.map((crop) => (
-          <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">
+          <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
               src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
               alt="tomatoes"
@@ -49,35 +49,32 @@ const MySelectedCrops = ({ loggedInUserId }) => {
             />
             <div className="p-2 flex flex-col gap-2">
               <div className="flex justify-between mx-8">
-                <p className="text-3xl text-white font-bold">
+                <p className="text-xl text-[#000] ">
                   {crop.plantable_crop.name}
                 </p>
                 <BsFillBookmarkXFill
                   onClick={() => removeFromMySelectedCrops(crop.id)}
-                  className="text-white text-3xl cursor-pointer hover:scale-110 transform transition duration-500 ease-in-out"
+                  size={30}
+                  className="text-[#3B841F] text-xl cursor-pointer hover:scale-110 transform transition duration-500 ease-in-out"
                 />
               </div>
 
               <div className="flex justify-between mx-8">
-                <p className="text-2xl text-white font-bold">
-                  Maturity Period:
-                </p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
+                <p className="text-xl text-[#000] ">Maturity Period:</p>
+                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl font-bold text-white ">
                   {crop.plantable_crop.maturity_period}
                 </p>
               </div>
               <div className="flex justify-between mx-8">
-                <p className="text-xl text-white font-bold">
-                  Cost of Production:
-                </p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
+                <p className="text-xl text-[#000]">Cost of Production:</p>
+                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
                   {crop.plantable_crop.cost_to_produce_kg} KES
                 </p>
               </div>
 
               <div className="flex justify-between mx-8">
-                <p className="text-3xl text-white font-bold">Price Per Kg:</p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
+                <p className="text-xl text-[#000]">Price Per Kg:</p>
+                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
                   {crop.plantable_crop.price_per_kg} KES
                 </p>
               </div>
