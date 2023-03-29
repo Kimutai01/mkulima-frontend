@@ -5,7 +5,7 @@ import arrow from "../images/arrow.png";
 import { Link } from "react-router-dom";
 const ProduceBuyerHero = () => {
   return (
-    <div className=" px-8">
+    <div className=" px-8 pt-24">
       <div className="flex justify-center gap-12">
         <div className="w-1/2 text-center flex justify-center flex-col">
           <h1 className="text-[#3B841F] text-5xl my-4">
