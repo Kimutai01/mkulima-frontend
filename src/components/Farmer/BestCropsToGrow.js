@@ -51,7 +51,7 @@ const BestCropsToGrow = ({
       </p>
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {bestCrops.map((crop) => (
-          <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">
+          <div className="flex flex-col  rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">
             <img
               src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
               alt="tomatoes"
@@ -83,7 +83,7 @@ const BestCropsToGrow = ({
                 </p>
               </div>
 
-              <div className="flex justify-between mx-8">
+              <div className="flex justify-between pb-4 mx-8">
                 <p className="text-3xl text-white font-bold">Price Per Kg:</p>
                 <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
                   {crop.price_per_kg} KES

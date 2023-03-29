@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { MdDeleteForever } from "react-icons/md";
 const MySoldProducts = ({ loggedInUserId }) => {
   const [my_sold_products, setMySoldProducts] = useState([]);
   const removeFromMySoldProducts = (id) => {
@@ -22,8 +22,8 @@ const MySoldProducts = ({ loggedInUserId }) => {
   }, [my_sold_products, loggedInUserId]);
 
   return (
-    <div className="pt-24">
-      <h1 className="text-4xl text-center">My Products in the Market</h1>
+    <div className="pt-24 kulim-park">
+      <h1 className="text-4xl text-center text-[#3B841F] font-bold">My Products in the Market</h1>
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {my_sold_products.length > 0 ? (
           my_sold_products.map((crop) => (
@@ -34,9 +34,35 @@ const MySoldProducts = ({ loggedInUserId }) => {
                 className="w-[400px] h-[300px] rounded-t-3xl object-cover"
               />
               <div className="p-2 flex flex-col gap-2">
-                <div className="mx-8">
-                  <p className="text-xl text-[#000] text-center">{crop.name}</p>
-                  <p className="text-center">{crop.description}</p>
+                <div className="flex justify-between mx-8">
+                  <p className="text-xl text-[#000] font-bold ">{crop.name}</p>
+                  <MdDeleteForever
+                    className="text-3xl text-[#3B841F] cursor-pointer"
+                    onClick={() => removeFromMySoldProducts(crop.id)}
+                  />
+                </div>
+
+                <div className="flex justify-start flex-col  mx-8">
+                  <p className="font-bold text-gray-500 ">{crop.description}</p>
+                </div>
+                <div className="flex justify-between mx-8">
+                  <p className="text-xl text-[#000]">Price</p>
+                  <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
+                    {crop.price_per_kg} per kg
+                  </p>
+                </div>
+                <div className="flex justify-between mx-8">
+                  <p className="text-xl text-[#000]">Your Location</p>
+                  <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
+                    {crop.location}
+                  </p>
+                </div>
+
+                <div className="flex justify-between pb-4 mx-8">
+                  <p className="text-xl text-[#000]">Your Contact</p>
+                  <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
+                    {crop.contact}
+                  </p>
                 </div>
               </div>
             </div>

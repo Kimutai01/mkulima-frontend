@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 
 const Step4 = () => {
   return (
-    <div className="flex justify-center gap-8">
+    <div className="flex kulim-park justify-center gap-8">
       <div className="w-1/2 text-center flex justify-center flex-col">
-        <h1 className="text-[#3B841F] text-5xl my-4">Step 4 : Harvest</h1>
+        <h1 className="text-[#3B841F] text-5xl font-bold my-4">Step 4 : Harvest</h1>
         <img src={four} alt="four" className="h-64 w-32 mx-auto" />
 
 
@@ -35,11 +35,11 @@ const Step4 = () => {
 
         <div className="flex justify-center">
           <Link to="/SelectCrop">
-            <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
+            <button className="bg-[#7DD959] gap-2  px-8 py-4 text-xl rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
               Get Started
               <div className="flex mt-2 ">
-                <img src={arrow} alt="arrow" className="h-[10px]" />
-                <img src={arrow} alt="arrow" className="h-[10px]" />
+                <img src={arrow} alt="arrow" className="h-[13px]" />
+                <img src={arrow} alt="arrow" className="h-[13px]" />
               </div>
             </button>
           </Link>

@@ -4,14 +4,14 @@ import arrow from "../images/arrow.png";
 import { Link } from "react-router-dom";
 const AnimalFeedsBuyerHero = () => {
   return (
-    <div className=" px-8">
+    <div className=" px-8 kulim-park">
       <div className="flex justify-center gap-12">
         <div className="w-1/2 text-center flex justify-center flex-col">
-          <h1 className="text-[#3B841F] text-5xl my-4">
+          <h1 className="text-[#3B841F] font-bold text-5xl my-4">
             Buy Organic Animal Feeds
           </h1>
 
-          <p className="font-italic">Buy organic animal feeds directly from farmers</p>
+          <p className="edunswact text-xl">Buy organic animal feeds directly from farmers</p>
           <p className="my-4 w-[80%] mx-auto">
             As a livestock farmer, you need to be sure that your animals are
             getting the best feed. This is why we've created mche, a platform
@@ -28,11 +28,11 @@ const AnimalFeedsBuyerHero = () => {
 
           <div className="flex justify-center">
             <Link to="/AllAnimalFeeds">
-              <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
+              <button className="bg-[#7DD959] gap-2 px-8 py-4 text-xl rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
                 Get Started
                 <div className="flex mt-2 ">
-                  <img src={arrow} alt="arrow" className="h-[10px]" />
-                  <img src={arrow} alt="arrow" className="h-[10px]" />
+                  <img src={arrow} alt="arrow" className="h-[13px]" />
+                  <img src={arrow} alt="arrow" className="h-[13px]" />
                 </div>
               </button>
             </Link>

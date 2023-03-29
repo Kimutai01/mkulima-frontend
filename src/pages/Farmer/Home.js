@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="pt-24">
       <Splide
-        className="w-full md:h-[80vh] h-full"
+        className="w-full md:h-[90vh] h-full"
         options={{
           type: "loop",
           perPage: 1,

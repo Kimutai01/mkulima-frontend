@@ -3,7 +3,7 @@ import SupplierHero from "../../components/Supplier/SupplierHero";
 
 const SupplierHome = () => {
   return (
-    <div >
+    <div className="kulim-park">
       <SupplierHero />
     </div>
   );

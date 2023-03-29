@@ -49,57 +49,55 @@ function Login({ setStoredToken }) {
   };
   return (
     <>
-      <section className="pt-24">
-        <div className="flex flex-col  items-center justify-center px-6 py-8 mx-auto h-screen md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-black">
-            <div className="flex flex-col  items-center justify-center px-6 py-4"></div>
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight  text-blue-700 md:text-2xl ">
-                Sign in to your account
-              </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    National ID Number
-                  </label>
-                  <input
-                    type="text"
-                    value={national_id}
-                    onChange={(e) => setNationalId(e.target.value)}
-                    className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    placeholder="123456789"
-                    required=""
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    name="password"
-                    id="password"
-                    className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    placeholder="******"
-                    required=""
-                  />
-                </div>
+      <div className="flex flex-col kulim-park  items-center justify-center px-6 py-8 mx-auto h-screen md:h-screen lg:py-0">
+        <div className="w-full bg-white rounded-lg shadow border border-2 md:mt-0 sm:max-w-md xl:p-0 ">
+          <div className="flex flex-col  items-center justify-center px-6 py-4"></div>
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-xl font-bold leading-tight tracking-tight  text-[#3B841F] md:text-3xl ">
+              Sign in to your account
+            </h1>
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 text-black font-semibold">
+                  National ID Number
+                </label>
+                <input
+                  type="text"
+                  value={national_id}
+                  onChange={(e) => setNationalId(e.target.value)}
+                  className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                  placeholder="123456789"
+                  required=""
+                />
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 text-black font-semibold">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  name="password"
+                  id="password"
+                  className="bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                  placeholder="******"
+                  required=""
+                />
+              </div>
 
-                <button
-                  type="submit"
-                  className="w-full text-white  bg-blue-700  border border-transparent rounded-lg py-2.5 px-4 hover:scale-105   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600
+              <button
+                type="submit"
+                className="w-full text-white  text-xl bg-[#3B841F]  border border-transparent rounded-lg py-2.5 px-4 hover:scale-105   
                   transition duration-500 ease-in-out"
-                >
-                  Sign in
-                </button>
-              </form>
-              <ToastContainer />
-            </div>
+              >
+                Sign in
+              </button>
+            </form>
+            <ToastContainer />
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

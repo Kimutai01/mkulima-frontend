@@ -28,9 +28,9 @@ const MySelectedCrops = ({ loggedInUserId }) => {
   }, []);
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 kulim-park">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-[#3B841F] text-5xl">My Selected Crops</h1>
+        <h1 className="text-[#3B841F] font-bold text-5xl">My Selected Crops</h1>
 
         <p>
           Here are the crops you have selected to grow. You can remove them from
@@ -80,9 +80,9 @@ const MySelectedCrops = ({ loggedInUserId }) => {
               </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex pb-4 justify-center">
               <Link to={`/EachOfMySelectedCrop/${crop.id}`}>
-                <button className="bg-white gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
+                <button className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
                   Get Started
                   <div className="flex mt-2 ">
                     <img

@@ -7,11 +7,11 @@ const SupplierHero = () => {
     <div className=" px-8">
       <div className="flex justify-center gap-12">
         <div className="w-1/2 text-center flex justify-center flex-col">
-          <h1 className="text-[#3B841F] text-5xl my-4">
+          <h1 className="text-[#3B841F] font-bold text-5xl my-4">
             Sell Agricultural Input supplies
           </h1>
 
-          <p className="font-italic">
+          <p className="edunswact text-2xl">
             Sell your agricultural inputs directly to farmers
           </p>
           <p className="my-4 w-[80%] mx-auto">
@@ -28,11 +28,11 @@ const SupplierHero = () => {
 
           <div className="flex justify-center">
             <Link to="/AddSuppliedInput">
-              <button className="bg-[#7DD959] gap-2 px-4 py-2 rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
+              <button className="bg-[#7DD959] gap-2 px-8 py-4  rounded-2xl font-bold text-white mt-12 justify-center place-content-center flex text-md">
                 Add Input
                 <div className="flex mt-2 ">
-                  <img src={arrow} alt="arrow" className="h-[10px]" />
-                  <img src={arrow} alt="arrow" className="h-[10px]" />
+                  <img src={arrow} alt="arrow" className="h-[13px]" />
+                  <img src={arrow} alt="arrow" className="h-[13px]" />
                 </div>
               </button>
             </Link>
