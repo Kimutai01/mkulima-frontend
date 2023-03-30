@@ -52,19 +52,7 @@ const VerticalBar = () => {
       });
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/counties_with_inputs", {
-      method: "GET",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCounties(data);
-      });
-  }, []);
+  
 
   const options = {
     responsive: true,

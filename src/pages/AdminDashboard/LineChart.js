@@ -35,7 +35,7 @@ const LineChart = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setPlantingInputs(data.top_planting_inputs_crops_for);
+        setPlantingInputs(data);
       });
   }, []);
 
@@ -49,7 +49,8 @@ const LineChart = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setManagementInputs(data.top_management_inputs_crops_for);
+        console.log(data);
+        setManagementInputs(data);
       });
   }, []);
 
@@ -66,7 +67,7 @@ const LineChart = () => {
     },
   };
 
-  const labels = plantingInputs.map((input) => input.name);
+  const labels = ['Tomato', 'Sukumawiki', 'Potato', 'Maize', 'Banana']
 
   const data = {
     labels,
