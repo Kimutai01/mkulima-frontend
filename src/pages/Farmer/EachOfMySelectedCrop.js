@@ -81,29 +81,29 @@ const EachOfMySelectedCrop = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 kulim-park">
       <div>
         {stage === "site selection" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center flex items-center">Plan</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">Plan</h1>
             <img src={one} alt="one" className="w-20" />
           </div>
         )}
         {stage === "planting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center flex items-center">Plant</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">Plant</h1>
             <img src={two} alt="two" className="w-20" />
           </div>
         )}
         {stage === "harvesting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center flex items-center">Harvest</h1>
+            <h1 className="justify-center  edunswact text-5xl flex items-center">Harvest</h1>
             <img src={four} alt="four" className="w-20" />
           </div>
         )}
         {stage === "management" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center flex items-center">Grow</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">Grow</h1>
             <img src={three} alt="three" className="w-20" />
           </div>
         )}

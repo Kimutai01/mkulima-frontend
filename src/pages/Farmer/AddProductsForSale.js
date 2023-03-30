@@ -14,6 +14,24 @@ const AddProductsForSale = ({ loggedInUserId }) => {
   const [price_per_kg, setPricePerKg] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
+  const [crops_available, setCropsAvailable] = useState([]);
+  const [counties, setCounties] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/counties")
+      .then((response) => response.json())
+      .then((data) => {
+        setCounties(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/plantable_crops")
+      .then((response) => response.json())
+      .then((data) => {
+        setCropsAvailable(data);
+      });
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -83,13 +101,13 @@ const AddProductsForSale = ({ loggedInUserId }) => {
       });
   };
   return (
-    <div className="pt-24">
+    <div className="pt-24 kulim-park">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-[#3B841F] text-5xl">
+        <h1 className="text-[#3B841F] font-bold text-5xl">
           Add your products for sale here.
         </h1>
 
-        <p>
+        <p className="edunswact text-xl">
           Make some money by selling your products here. Buyers will be able to
           contact you directly and help your business grow .
         </p>
@@ -147,16 +165,19 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Name of Crop
+                    Crop Name
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="DAP Fertilizer"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {crops_available.map((crop) => (
+                        <option value={crop.name}>{crop.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 
@@ -195,13 +216,16 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                     Where are you located?
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Nairobi"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {counties.map((county) => (
+                        <option value={county.name}>{county.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>

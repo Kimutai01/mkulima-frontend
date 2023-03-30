@@ -1,4 +1,4 @@
-import React, { useState, useRef , useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -14,9 +14,27 @@ const AddAnimalFeeds = ({ loggedInUserId }) => {
   const [price_per_kg, setPricePerKg] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
+  const [crops_available, setCropsAvailable] = useState([]);
+  const [counties, setCounties] = useState([]);
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    fetch("http://localhost:3000/counties")
+      .then((response) => response.json())
+      .then((data) => {
+        setCounties(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/plantable_crops")
+      .then((response) => response.json())
+      .then((data) => {
+        setCropsAvailable(data);
+      });
+  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const uploadProductPicture = (files) => {
     const formData = new FormData();
@@ -83,13 +101,13 @@ const AddAnimalFeeds = ({ loggedInUserId }) => {
       });
   };
   return (
-    <div className="pt-24">
+    <div className="pt-24 kulim-parl">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-[#3B841F] text-5xl">
+        <h1 className="text-[#3B841F] font-bold text-5xl">
           Add Low Cost Animal Feeds to the Market
         </h1>
 
-        <p>
+        <p className="edunswact text-xl">
           Make some money by selling your low value harvest to livestock farmers
           in your area to reduce wastage and post-harvest losses.
         </p>
@@ -146,18 +164,22 @@ const AddAnimalFeeds = ({ loggedInUserId }) => {
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Name of the Crop
+                    Crop Name
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="DAP Fertilizer"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {crops_available.map((crop) => (
+                        <option value={crop.name}>{crop.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 
@@ -196,15 +218,19 @@ const AddAnimalFeeds = ({ loggedInUserId }) => {
                     Where are you located?
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Nairobi"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {counties.map((county) => (
+                        <option value={county.name}>{county.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
                     If a customer wants to reach you, what is your phone number?

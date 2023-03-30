@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,24 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
   const [crop_for, setCropFor] = useState("");
   const [location, setLocation] = useState("");
   const [contact, setContact] = useState("");
+  const [crops_available, setCropsAvailable] = useState([]);
+  const [counties, setCounties] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/counties")
+      .then((response) => response.json())
+      .then((data) => {
+        setCounties(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/plantable_crops")
+      .then((response) => response.json())
+      .then((data) => {
+        setCropsAvailable(data);
+      });
+  }, []);
 
   const uploadProductPicture = (files) => {
     const formData = new FormData();
@@ -201,16 +219,19 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
 
                 <div>
                   <label className="block text-sm font-medium te/xt-gray-700">
-                    Which Crop is this Supply for?
+                    What Input is this crop for?
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Maize"
                       value={crop_for}
                       onChange={(e) => setCropFor(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {crops_available.map((crop) => (
+                        <option value={crop.name}>{crop.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>
@@ -218,13 +239,16 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
                     Where are you located?
                   </label>
                   <div className="mt-1">
-                    <input
-                      type={"text"}
+                    <select
                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Nairobi"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                    />
+                    >
+                      <option value="">Select</option>
+                      {counties.map((county) => (
+                        <option value={county.name}>{county.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>

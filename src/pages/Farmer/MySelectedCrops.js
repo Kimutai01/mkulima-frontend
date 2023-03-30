@@ -32,7 +32,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-[#3B841F] font-bold text-5xl">My Selected Crops</h1>
 
-        <p>
+        <p className="text-xl edunswact ">
           Here are the crops you have selected to grow. You can remove them from
           this list if you change your mind. To read more about a crop, click on
           the "Get Started" button.
