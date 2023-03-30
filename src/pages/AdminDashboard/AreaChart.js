@@ -59,7 +59,7 @@ const AreaChat = () => {
       {
         fill: true,
         label: "Number of selections",
-        data: selectedCrops.map((crop) => crop.selections_count),
+        data: selectedCrops.map((crop) => crop.count),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },

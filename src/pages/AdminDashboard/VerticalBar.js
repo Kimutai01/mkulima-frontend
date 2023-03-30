@@ -80,7 +80,7 @@ const VerticalBar = () => {
     },
   };
 
-  const labels = counties.map((county) => county);
+  const labels = ["Nairobi", "Kiambu", "Mombasa", "Kwale", "Kisumu"];
 
   const data = {
     labels,
