@@ -25,6 +25,8 @@ import AnimalFeedsBuyerHome from "./pages/AnimalFeedsBuyer/AnimalFeedsBuyerHome"
 import AnimalFeedsBuyerNavBar from "./components/Navbars/AnimalFeedsBuyerNavBar";
 import InputsForCrop from "./pages/Farmer/InputsForCrop";
 import InputsForManagement from "./pages/Farmer/InputsForManagement";
+import AdminHome from "./pages/AdminDashboard/AdminHome";
+import AdminNavBar from "./components/Navbars/AdminNavBar";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -65,6 +67,9 @@ function App() {
             {loggedInUserRole === "animal_feeds_buyer" && (
               <AnimalFeedsBuyerNavBar setStoredToken={setStoredToken} />
             )}
+            {loggedInUserRole === "admin" && (
+              <AdminNavBar setStoredToken={setStoredToken} />
+            )}
           </>
         )}
         <Routes>
@@ -94,6 +99,12 @@ function App() {
                   element={
                     <AnimalFeedsBuyerHome loggedInUserId={loggedInUserId} />
                   }
+                />
+              )}
+              {loggedInUserRole === "admin" && (
+                <Route
+                  path="/"
+                  element={<AdminHome loggedInUserId={loggedInUserId} />}
                 />
               )}
               <Route
