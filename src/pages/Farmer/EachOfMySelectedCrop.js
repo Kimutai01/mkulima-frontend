@@ -9,6 +9,7 @@ import one from "../images/one.png";
 import two from "../images/two.png";
 import three from "../images/three.png";
 import four from "../images/four.png";
+import { jsPDF } from "jspdf";
 const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
@@ -23,6 +24,61 @@ const EachOfMySelectedCrop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const downloadPdf = () => {
+    // have 2 pages in the pdf
+    const doc = new jsPDF();
+
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 10, my_selected_crop.name);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 20, "Cost to Produce 1kg:");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 20, my_selected_crop.cost_to_produce_kg);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 30, "Average price of  1kg:");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 30, my_selected_crop.price_per_kg);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 40, "Extension Officer Number:");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 40, my_selected_crop.extension_officer_phone_number);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 50, "Land Preparation:");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 55, my_selected_crop.land_preparation);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 80, "Planting ");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 85, my_selected_crop.planting);
+    doc.setFontSize(20);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 120, "Crop Management");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 125, my_selected_crop.crop_management);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 180, "Harvesting");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 185, my_selected_crop.harvesting);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 230, "Storage");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 235, my_selected_crop.storage);
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 280, "Thank you for using mche");
+
+    doc.save(`${my_selected_crop.name} mche.pdf `);
+  };
 
   return (
     <div className="pt-16">
@@ -114,7 +170,10 @@ const EachOfMySelectedCrop = () => {
               </p>
 
               <div className="flex justify-center gap-4">
-                <button className="bg-[#7DD959] text-white px-4 py-2 flex justify-center gap-2 rounded-lg">
+                <button
+                  className="bg-[#7DD959] text-white px-4 py-2 flex justify-center gap-2 rounded-lg"
+                  onClick={() => downloadPdf()}
+                >
                   Download Plant Advisory
                   <HiDownload className="text-white text-2xl" />
                 </button>

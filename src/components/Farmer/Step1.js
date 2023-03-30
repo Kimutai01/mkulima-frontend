@@ -48,7 +48,7 @@ const Step1 = () => {
         </div>
       </div>
       <div>
-        <img src={step1} alt="step1" className="h-[75vh]" />
+        <img src={step1} alt="step1" className="h-[85vh]" />
       </div>
     </div>
   );
