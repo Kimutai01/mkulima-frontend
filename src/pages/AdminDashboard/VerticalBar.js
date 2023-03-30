@@ -22,7 +22,7 @@ ChartJS.register(
 const VerticalBar = () => {
   const [managementInputs, setManagementInputs] = useState([]);
   const [plantingInputs, setPlantingInputs] = useState([]);
-  const [counties, setCounties] = useState([]);
+ 
 
   useEffect(() => {
     fetch("http://localhost:3000/top_5_locations_management_inputs", {
@@ -63,7 +63,7 @@ const VerticalBar = () => {
       },
       title: {
         display: true,
-        text: "Satisfaction with taxes paid (1-Very Satisfied, 4-Very Dissatisfied)",
+        text: "Top 5 Counties with the most sellers of Planting and Management Inputs",
       },
     },
   };

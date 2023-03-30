@@ -4,18 +4,27 @@ import AreaChart from "./AreaChart";
 import RadarChart from "./RadarChart";
 function AdminHome() {
   return (
-    <div className="grid mx-auto px-8  pt-24  md:grid-cols-2 md:gap-10 gap-4 grid-cols-1">
-      <div className="md:h-[500px] h-[300px]  ">
-        <RadarChart />
-      </div>
-      <div className="md:h-[500px] h-[300px]  ">
-        <LineChart />
-      </div>
-      <div className="md:h-[500px] h-[300px]  ">
-        <AreaChart />
-      </div>
-      <div className="md:h-[500px] h-[300px]  ">
-        <VerticalBar />
+    <div className="pt-24">
+      <h1 className="text-[#3B841F] text-center font-bold text-5xl my-4">
+        See Data Analytics
+      </h1>
+
+          <p className="edunswact text-center text-2xl">
+              Analyse the flow of data in the system
+            </p>
+      <div className="grid mx-auto px-8    md:grid-cols-2 md:gap-10 gap-4 grid-cols-1">
+        <div className="md:h-[500px] h-[300px]  ">
+          <RadarChart />
+        </div>
+        <div className="md:h-[500px] h-[300px]  ">
+          <LineChart />
+        </div>
+        <div className="md:h-[500px] h-[300px]  ">
+          <AreaChart />
+        </div>
+        <div className="md:h-[500px] h-[300px]  ">
+          <VerticalBar />
+        </div>
       </div>
     </div>
   );
