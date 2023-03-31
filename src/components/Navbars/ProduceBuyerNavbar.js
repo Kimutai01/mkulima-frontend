@@ -35,8 +35,8 @@ const ProduceBuyerNavbar = ({ setStoredToken }) => {
       style={{ backgroundColor: `${navBg}` }}
       className={
         shadow
-        ? "fixed edunswact font-bold w-full h-16 shadow-xl z-[100]"
-        : "fixed edunswact font-bold w-full h-16 z-[100]"
+        ? "fixed edunswact font-semibold  w-full h-16 shadow-xl z-[100]"
+        : "fixed edunswact font-semibold  w-full h-16 z-[100]"
       }
     >
       <div className="flex justify-between items-center w-full h-full py-4 px-2 2xl:px-16">

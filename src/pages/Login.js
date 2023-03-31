@@ -50,7 +50,7 @@ function Login({ setStoredToken }) {
   return (
     <>
       <div className="flex flex-col kulim-park  items-center justify-center px-6 py-8 mx-auto h-screen md:h-screen lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow border border-2 md:mt-0 sm:max-w-md xl:p-0 ">
+        <div className="w-full bg-white rounded-lg shadow  border-2 md:mt-0 sm:max-w-md xl:p-0 ">
           <div className="flex flex-col  items-center justify-center px-6 py-4"></div>
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight  text-[#3B841F] md:text-3xl ">
@@ -58,7 +58,7 @@ function Login({ setStoredToken }) {
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-black font-semibold">
+                <label className="block mb-2 text-sm   text-black font-semibold">
                   National ID Number
                 </label>
                 <input
@@ -71,7 +71,7 @@ function Login({ setStoredToken }) {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-black font-semibold">
+                <label className="block mb-2 text-sm  text-black font-semibold">
                   Password
                 </label>
                 <input
