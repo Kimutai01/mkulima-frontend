@@ -29,7 +29,7 @@ const MySoldProducts = ({ loggedInUserId }) => {
           my_sold_products.map((crop) => (
             <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
               <img
-                src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                src={crop.product_image}
                 alt="tomatoes"
                 className="w-[400px] h-[300px] rounded-t-3xl object-cover"
               />

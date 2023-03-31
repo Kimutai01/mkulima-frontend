@@ -53,8 +53,8 @@ const BestCropsToGrow = ({
         {bestCrops.map((crop) => (
           <div className="flex flex-col  rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">
             <img
-              src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-              alt="tomatoes"
+              src={crop.image}
+              alt={crop.name}
               className="w-[400px] h-[300px] rounded-t-3xl object-cover"
             />
             <div className="p-2 flex flex-col gap-2">

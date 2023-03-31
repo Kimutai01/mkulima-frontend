@@ -85,34 +85,40 @@ const EachOfMySelectedCrop = () => {
       <div>
         {stage === "site selection" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center edunswact text-5xl flex items-center">Plan</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">
+              Plan
+            </h1>
             <img src={one} alt="one" className="w-20" />
           </div>
         )}
         {stage === "planting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center edunswact text-5xl flex items-center">Plant</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">
+              Plant
+            </h1>
             <img src={two} alt="two" className="w-20" />
           </div>
         )}
         {stage === "harvesting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center  edunswact text-5xl flex items-center">Harvest</h1>
+            <h1 className="justify-center  edunswact text-5xl flex items-center">
+              Harvest
+            </h1>
             <img src={four} alt="four" className="w-20" />
           </div>
         )}
         {stage === "management" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
-            <h1 className="justify-center edunswact text-5xl flex items-center">Grow</h1>
+            <h1 className="justify-center edunswact text-5xl flex items-center">
+              Grow
+            </h1>
             <img src={three} alt="three" className="w-20" />
           </div>
         )}
 
         <div className="flex justify-center gap-4">
           <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
-          <p className="mb-2 text-gray-400 text-[#3B841F]  text-xl">
-            ................
-          </p>
+          <p className="mb-2 text-gray-400   text-xl">................</p>
           <p className="text-3xl  text-[#3B841F]">Choose your Crop</p>
           <p className="mb-2 text-gray-400 text-xl">................</p>
           <p className="text-3xl  text-[#3B841F]">Advisory</p>
@@ -181,7 +187,7 @@ const EachOfMySelectedCrop = () => {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                src={my_selected_crop.image}
                 alt="splash"
                 className=" w-[550px] h-[80vh] rounded-b-3xl"
               />

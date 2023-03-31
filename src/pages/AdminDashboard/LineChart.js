@@ -67,7 +67,7 @@ const LineChart = () => {
     },
   };
 
-  const labels = ['Tomato', 'Sukumawiki', 'Potato', 'Maize', 'Banana']
+  const labels = ["Tomato", "Sukumawiki", "Beans", "Maize", "Onions"]
 
   const data = {
     labels,
