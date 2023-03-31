@@ -189,7 +189,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
                     <textarea
                       type={"text"}
                       className=" border border-gray-300 h-[100px]  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="DAP Fertilizer"
+                      placeholder="Highest quality maize in the market"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                     />

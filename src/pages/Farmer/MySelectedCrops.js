@@ -43,8 +43,9 @@ const MySelectedCrops = ({ loggedInUserId }) => {
         {mySelectedCrops.map((crop) => (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
-              src={crop.image}
+              src={crop.plantable_crop.image}
               className="w-[400px] h-[300px] rounded-t-3xl object-cover"
+              alt={crop.plantable_crop.name}
             />
             <div className="p-2 flex flex-col gap-2">
               <div className="flex justify-between mx-8">

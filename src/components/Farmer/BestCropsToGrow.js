@@ -51,11 +51,11 @@ const BestCropsToGrow = ({
       </p>
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {bestCrops.map((crop) => (
-          <div className="flex flex-col  rounded-3xl  gap-4 w-[400px] bg-[#3B841F]">
+          <div className="flex flex-col  rounded-3xl  gap-4 w-[350px] bg-[#3B841F]">
             <img
               src={crop.image}
               alt={crop.name}
-              className="w-[400px] h-[300px] rounded-t-3xl object-cover"
+              className="w-[350px] h-[300px] rounded-t-3xl object-cover"
             />
             <div className="p-2 flex flex-col gap-2">
               <div className="flex justify-between mx-8">

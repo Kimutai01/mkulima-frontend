@@ -200,8 +200,8 @@ const EachOfMySelectedCrop = () => {
         <p
           className={
             stage === "site selection"
-              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
-              : "text-3xl  cursor-pointer  font-bold px-4 py-2"
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer  font-bold px-4 py-2"
           }
           onClick={() => setStage("site selection")}
         >
@@ -210,8 +210,8 @@ const EachOfMySelectedCrop = () => {
         <p
           className={
             stage === "planting"
-              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
-              : "text-3xl  cursor-pointer font-bold px-4 py-2 "
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer font-bold px-4 py-2 "
           }
           onClick={() => setStage("planting")}
         >
@@ -220,8 +220,8 @@ const EachOfMySelectedCrop = () => {
         <p
           className={
             stage === "management"
-              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
-              : "text-3xl  cursor-pointer font-bold px-4 py-2 "
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer font-bold px-4 py-2 "
           }
           onClick={() => setStage("management")}
         >
@@ -230,8 +230,8 @@ const EachOfMySelectedCrop = () => {
         <p
           className={
             stage === "harvesting"
-              ? "text-3xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
-              : "text-3xl  cursor-pointer font-bold px-4 py-2"
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer font-bold px-4 py-2"
           }
           onClick={() => setStage("harvesting")}
         >

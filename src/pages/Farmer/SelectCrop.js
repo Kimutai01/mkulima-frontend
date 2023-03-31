@@ -39,20 +39,20 @@ const SelectCrop = ({ loggedInUserId }) => {
           <img src={one} alt="one" className="w-20" />
         </div>
 
-        <div className="flex kulim-park justify-center gap-4">
-          <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
-          <p className="mb-2 text-gray-400 text-xl">................</p>
+        <div className="flex kulim-park justify-center gap-2">
+          <p className="text-3xl text-[#3B841F] font-bold ">Choose your Location</p>
+          <p className="mb-2 text-gray-400 font-bold text-xl">................</p>
           <p
             className={
               selectionDone
-                ? "text-3xl text-[#3B841F] "
-                : "text-3xl  text-gray-400 "
+                ? "text-3xl text-[#3B841F] font-bold "
+                : "text-3xl  text-gray-400 font-bold "
             }
           >
             Select Crop
           </p>
-          <p className="mb-2 text-gray-400 text-xl">................</p>
-          <p className="text-3xl  text-gray-400">Advisory </p>
+          <p className="mb-2 text-gray-400 font-bold text-xl">................</p>
+          <p className="text-3xl  font-bold text-gray-400">Advisory </p>
         </div>
       </div>
       <div className="flex justify-center gap-4">
