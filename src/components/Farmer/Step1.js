@@ -10,7 +10,7 @@ const Step1 = () => {
       <div className="w-1/2 text-center flex justify-center flex-col">
         <h1 className="text-[#3B841F] font-bold text-5xl my-2">Step 1 : Plan</h1>
 
-        <img src={one} alt="one" className="h-64 w-32 mx-auto" />
+        <img src={one} alt="one" className="h-56 w-32 mx-auto" />
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">
           <IoMdCheckmarkCircle className="text-[#7DD959] text-2xl" />

@@ -11,7 +11,7 @@ const Step4 = () => {
     <div className="flex kulim-park justify-center gap-8">
       <div className="w-1/2 text-center flex justify-center flex-col">
         <h1 className="text-[#3B841F] text-5xl font-bold my-4">Step 4 : Harvest</h1>
-        <img src={four} alt="four" className="h-64 w-32 mx-auto" />
+        <img src={four} alt="four" className="h-56 w-32 mx-auto" />
 
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">

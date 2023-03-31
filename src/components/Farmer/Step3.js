@@ -10,7 +10,7 @@ const Step3 = () => {
     <div className="flex kulim-park justify-center gap-12">
       <div className="w-1/2 text-center flex justify-center flex-col">
         <h1 className="text-[#3B841F] font-bold text-5xl my-4">Step 3 : Grow</h1>
-        <img src={three} alt="three" className="h-64 w-32 mx-auto" />
+        <img src={three} alt="three" className="h-56 w-32 mx-auto" />
 
 
         <p className="my-4 w-[80%] mx-auto flex gap-2">

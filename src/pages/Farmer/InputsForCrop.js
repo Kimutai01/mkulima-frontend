@@ -67,7 +67,14 @@ const InputsForCrop = () => {
     );
   return (
     <div className="pt-24 kulim-park">
-      <h1 className="text-4xl font-bold text-center">Inputs for {name}</h1>
+      <h1 className="text-[#3B841F] text-center font-bold text-5xl">
+        Planting Inputs for {name}
+      </h1>
+
+      <p className="edunswact text-center text-xl">
+        Here are some suggested inputs for {name} that you can buy from our
+    local input suppliers.
+      </p>
 
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {displaySuggestedInputs}

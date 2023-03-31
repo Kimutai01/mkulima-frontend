@@ -78,7 +78,7 @@ const BestCropsToGrow = ({
                 <p className="text-xl text-white font-bold">
                   Cost of Production:
                 </p>
-                <p className="bg-white gap-2 px-4 py-2 rounded-xl font-bold text-[#3B841F] ">
+                <p className="bg-white gap-2 px-4 text-sm py-2 rounded-xl font-bold text-[#3B841F] ">
                   {crop.cost_to_produce_kg} KES
                 </p>
               </div>
