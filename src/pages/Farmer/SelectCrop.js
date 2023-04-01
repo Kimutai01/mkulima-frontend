@@ -8,7 +8,6 @@ const SelectCrop = ({ loggedInUserId }) => {
   const [county, setCounty] = useState("");
   const [constituency, setConstituency] = useState("");
   const [selectedCountyName, setSelectedCountyName] = useState("");
-  const [selectedCountyId, setSelectedCountyId] = useState("");
   const [selectionDone, setSelectionDone] = useState(false);
   const [bestCrops, setBestCrops] = useState([]);
   const navigate = useNavigate();
@@ -54,7 +53,7 @@ const SelectCrop = ({ loggedInUserId }) => {
         if (data.constituencies) {
           setConstituencies(data.constituencies);
           setSelectedCountyName(data.county.name);
-          setSelectedCountyId(data.county.id);
+
           setRegion(data.county.region);
           console.log(data.county.region);
         }
