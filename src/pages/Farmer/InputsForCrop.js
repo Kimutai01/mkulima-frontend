@@ -20,8 +20,8 @@ const InputsForCrop = () => {
     suggested_inputs &&
     name &&
     suggested_inputs.map(
-      input.approved === true &&
       (input) =>
+        input.approved === true &&
         input.crop_for === name && (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
@@ -74,7 +74,7 @@ const InputsForCrop = () => {
 
       <p className="edunswact text-center text-xl">
         Here are some suggested inputs for {name} that you can buy from our
-    local input suppliers.
+        local input suppliers.
       </p>
 
       <div className="flex justify-center flex-wrap my-4 gap-12">

@@ -1,7 +1,8 @@
-import LineChart from "./LineChart";
-import VerticalBar from "./VerticalBar";
-import AreaChart from "./AreaChart";
-import RadarChart from "./RadarChart";
+import React from "react";
+import RadarChart from "../../components/Admin/RadarChart";
+import LineChart from "../../components/Admin/LineChart";
+import AreaChart from "../../components/Admin/AreaChart";
+import VerticalBar from "../../components/Admin/VerticalBar";
 function AdminHome() {
   return (
     <div className="pt-24">
@@ -9,9 +10,9 @@ function AdminHome() {
         See Data Analytics
       </h1>
 
-          <p className="edunswact text-center text-2xl">
-              Analyse the flow of data in the system
-            </p>
+      <p className="edunswact text-center text-2xl">
+        Analyse the flow of data in the system
+      </p>
       <div className="grid mx-auto px-8    md:grid-cols-2 md:gap-10 gap-4 grid-cols-1">
         <div className="md:h-[500px] h-[300px]  ">
           <RadarChart />

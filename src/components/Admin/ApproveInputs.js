@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-const InputsForManagement = () => {
-  const { name } = useParams();
-  const [suggested_inputs, setSuggestedInputs] = useState([]);
+import React, { useEffect, useState } from "react";
 
+const ApproveInputs = () => {
+  const [inputs, setInputs] = useState([]);
   useEffect(() => {
     fetch("http://127.0.0.1:3000/input_supplies")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setSuggestedInputs(data);
+        setInputs(data);
       });
-  }, []);
+  }, [inputs]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   const displaySuggestedInputs =
-    suggested_inputs &&
-    name &&
-    suggested_inputs.map(
+    inputs &&
+    inputs.map(
       (input) =>
-        input.approved === true &&
-        input.crop_for === name && (
+        input.approved === false && (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
               src={input.product_image}
@@ -59,23 +53,33 @@ const InputsForManagement = () => {
             </div>
 
             <div className="flex justify-center">
-              <button className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
-                Call To Order
+              <button
+                className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md"
+                onClick={() => {
+                  fetch(
+                    `http://127.0.0.1:3000/input_supplies/${input.id}`,
+                    {
+                      method: "PATCH",
+                      body: JSON.stringify({ approved: true }),
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                    }
+                  );
+                }}
+              >
+                Approve
               </button>
             </div>
           </div>
         )
     );
   return (
-    <div className="pt-24">
+    <div className="kulim-park">
       <h1 className="text-[#3B841F] text-center font-bold text-5xl">
-        Management Inputs for {name}
+        Inputs awaiting approval
       </h1>
 
-      <p className="edunswact text-xl text-xl">
-        Here are some suggested inputs for {name} that you can buy from our
-        local input suppliers.
-      </p>
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {displaySuggestedInputs}
       </div>
@@ -83,4 +87,4 @@ const InputsForManagement = () => {
   );
 };
 
-export default InputsForManagement;
+export default ApproveInputs;

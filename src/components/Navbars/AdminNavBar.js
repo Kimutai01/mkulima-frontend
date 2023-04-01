@@ -46,6 +46,11 @@ const AdminNavBar = ({ setStoredToken }) => {
 
         <div>
           <ul className="hidden md:flex" style={{ color: `${linkColor}` }}>
+            <Link to="/Approve">
+              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
+                Approve
+              </li>
+            </Link>
             <Link to="/">
               <li
                 className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "

@@ -27,6 +27,7 @@ import InputsForCrop from "./pages/Farmer/InputsForCrop";
 import InputsForManagement from "./pages/Farmer/InputsForManagement";
 import AdminHome from "./pages/AdminDashboard/AdminHome";
 import AdminNavBar from "./components/Navbars/AdminNavBar";
+import Approve from "./pages/AdminDashboard/Approve";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -139,6 +140,10 @@ function App() {
               <Route
                 path="/MyAnimalFeeds"
                 element={<MyAnimalFeeds loggedInUserId={loggedInUserId} />}
+              />
+              <Route
+                path="/Approve"
+                element={<Approve loggedInUserId={loggedInUserId} />}
               />
               <Route path="/InputsForCrop/:name" element={<InputsForCrop />} />
               <Route
