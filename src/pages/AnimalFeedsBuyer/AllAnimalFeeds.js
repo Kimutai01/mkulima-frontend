@@ -11,9 +11,18 @@ const AllAnimalFeeds = () => {
   }, []);
   return (
     <div className="pt-24">
-      <h1 className="text-4xl text-[#3B841F] font-bold  text-center">All Animal Feeds In the market</h1>
+      <h1 className="text-[#3B841F] text-center font-bold text-5xl">
+        All Organic Animal Feeds
+      </h1>
+
+      <p className="edunswact text-center text-xl">
+        We have a wide range of organic animal feeds for your livestock. Help reduce wastage
+        and post harvest losses by buying organic animal feeds from our local farmers .
+      </p>
+
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {allanimalfeeds.map((feed) => (
+          feed.approved === true && 
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
               src={feed.product_image}

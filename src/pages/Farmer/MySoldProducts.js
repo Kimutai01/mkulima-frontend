@@ -64,6 +64,17 @@ const MySoldProducts = ({ loggedInUserId }) => {
                     {crop.contact}
                   </p>
                 </div>
+                <div className="flex justify-center">
+                  {crop.approved ? (
+                    <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
+                      Approved
+                    </p>
+                  ) : (
+                    <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
+                      Pending Approval
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           ))

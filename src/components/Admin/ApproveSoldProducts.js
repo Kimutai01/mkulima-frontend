@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const AllProducts = () => {
+const ApproveSoldProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
     fetch("http://127.0.0.1:3000/sold_products")
@@ -8,22 +8,20 @@ const AllProducts = () => {
       .then((data) => {
         setAllProducts(data);
       });
+  }, [allProducts]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="pt-24 kulim-park">
-      <h1 className="text-[#3B841F] text-center font-bold text-5xl">
-        All Agricultural Produce
+      <h1 className="text-4xl text-[#3B841F] font-bold text-center">
+        Produce awaiting approval
       </h1>
-
-      <p className="edunswact text-center text-xl">
-        We have a wide range of high quality agricultural produce from local
-        farmers. We are committed to providing you with the best produce at the
-        best prices.
-      </p>
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {allProducts.map(
           (product) =>
-            product.approved === true && (
+            product.approved === false && (
               <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
                 <img
                   src={product.product_image}
@@ -64,8 +62,22 @@ const AllProducts = () => {
                 </div>
 
                 <div className="flex justify-center">
-                  <button className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
-                    Call To Order
+                  <button
+                    className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md"
+                    onClick={() => {
+                      fetch(
+                        `http://127.0.0.1:3000/sold_products/${product.id}`,
+                        {
+                          method: "PATCH",
+                          body: JSON.stringify({ approved: true }),
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                        }
+                      );
+                    }}
+                  >
+                    Approve
                   </button>
                 </div>
               </div>
@@ -76,4 +88,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default ApproveSoldProducts;

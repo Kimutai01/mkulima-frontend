@@ -141,6 +141,11 @@ const EachOfMySelectedCrop = () => {
                 Here's a short summary of what exactly you might need to
                 consider.
               </p>
+              <p className="font-bold text-xl edunswact ">
+                In case you need more information, you can always contact your
+                extension officer on{" "}
+                {my_selected_crop.extension_officer_phone_number}
+              </p>
 
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between w-[50%] mx-auto">
@@ -161,18 +166,7 @@ const EachOfMySelectedCrop = () => {
                 </div>
               </div>
               <p className="my-4 w-[80%] mx-auto">
-                Whether you're a beginner looking to get into agriculture,
-                trying to figure out how to grow a specific crop, or in need of
-                fertilizers, pesticides, or hired tractors, we've got you
-                covered. But our support doesn't stop there.
-              </p>
-
-              <p className="my-4 w-[80%] mx-auto">
-                We can also help you with tips on how to deal with excess or
-                spoils and guide you on how to sell your produce. With mche,
-                you'll have access to all the information and resources you need
-                to succeed in farming. So why wait? Start exploring our website
-                today and take your farming journey to the next level!
+                {my_selected_crop.description}
               </p>
 
               <div className="flex justify-center gap-4">
