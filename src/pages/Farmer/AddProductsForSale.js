@@ -84,7 +84,7 @@ const AddProductsForSale = ({ loggedInUserId }) => {
             });
           });
         } else {
-          toast.success("Your product  has been added to the market!", {
+          toast.success("Your product  will be available for sale after quality control approval !", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,

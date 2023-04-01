@@ -85,7 +85,7 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
             });
           });
         } else {
-          toast.success("Your input supply has been added!", {
+          toast.success("Your input  will be available for sale after quality control approval !", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,

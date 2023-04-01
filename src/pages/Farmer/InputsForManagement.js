@@ -20,6 +20,7 @@ const InputsForManagement = () => {
     suggested_inputs &&
     name &&
     suggested_inputs.map(
+      input.approved === true &&
       (input) =>
         input.crop_for === name && (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
