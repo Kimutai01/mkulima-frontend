@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BestCropsToGrow from "../../components/Farmer/BestCropsToGrow";
+import { useNavigate } from "react-router-dom";
 import one from "../images/one.png";
 import { HiLocationMarker } from "react-icons/hi";
 const SelectCrop = ({ loggedInUserId }) => {
@@ -10,7 +10,27 @@ const SelectCrop = ({ loggedInUserId }) => {
   const [selectedCountyName, setSelectedCountyName] = useState("");
   const [selectedCountyId, setSelectedCountyId] = useState("");
   const [selectionDone, setSelectionDone] = useState(false);
-
+  const [bestCrops, setBestCrops] = useState([]);
+  const navigate = useNavigate();
+  const [region, setRegion] = useState("");
+  const addToMySelectedCrops = (id) => {
+    fetch("http://127.0.0.1:3000/selected_crops", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: Number(loggedInUserId),
+        plantable_crop_id: Number(id),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTimeout(() => {
+          navigate("/MySelectedCrops");
+        }, 2000);
+      });
+  };
   useEffect(() => {
     fetch("http://127.0.0.1:3000/counties")
       .then((response) => response.json())
@@ -18,16 +38,25 @@ const SelectCrop = ({ loggedInUserId }) => {
         setCounties(data);
       });
   }, []);
+  useEffect(() => {
+    fetch("http://127.0.0.1:3000/plantable_crops")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setBestCrops(data);
+      });
+  }, []);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:3000/counties/${county}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setSelectedCountyName(data.county.name);
-        setSelectedCountyId(data.county.id);
         if (data.constituencies) {
           setConstituencies(data.constituencies);
+          setSelectedCountyName(data.county.name);
+          setSelectedCountyId(data.county.id);
+          setRegion(data.county.region);
+          console.log(data.county.region);
         }
       });
   }, [county]);
@@ -40,8 +69,12 @@ const SelectCrop = ({ loggedInUserId }) => {
         </div>
 
         <div className="flex kulim-park justify-center gap-2">
-          <p className="text-3xl text-[#3B841F] font-bold ">Choose your Location</p>
-          <p className="mb-2 text-gray-400 font-bold text-xl">................</p>
+          <p className="text-3xl text-[#3B841F] font-bold ">
+            Choose your Location
+          </p>
+          <p className="mb-2 text-gray-400 font-bold text-xl">
+            ................
+          </p>
           <p
             className={
               selectionDone
@@ -51,14 +84,18 @@ const SelectCrop = ({ loggedInUserId }) => {
           >
             Select Crop
           </p>
-          <p className="mb-2 text-gray-400 font-bold text-xl">................</p>
+          <p className="mb-2 text-gray-400 font-bold text-xl">
+            ................
+          </p>
           <p className="text-3xl  font-bold text-gray-400">Advisory </p>
         </div>
       </div>
       <div className="flex justify-center gap-4">
         <div className="mt-1 flex flex-col justify-center w-[300px]">
           <label className="text-xl my-2 flex gap-2 font-bold text-center justify-center text-[#3B841F]">
-            <p className="flex justify-center place-items-center align-items">County</p>
+            <p className="flex justify-center place-items-center align-items">
+              County
+            </p>
             <HiLocationMarker className="text-[#3B841F]" />
           </label>
           <select
@@ -74,10 +111,12 @@ const SelectCrop = ({ loggedInUserId }) => {
         </div>
         <div>
           <div className="mt-1 w-[300px] flex flex-col justify-center">
-          <label className="text-xl my-2 flex gap-2 font-bold text-center justify-center text-[#3B841F]">
-            <p className="flex justify-center place-items-center align-items">Constituency</p>
-            <HiLocationMarker className="text-[#3B841F]" />
-          </label>
+            <label className="text-xl my-2 flex gap-2 font-bold text-center justify-center text-[#3B841F]">
+              <p className="flex justify-center place-items-center align-items">
+                Constituency
+              </p>
+              <HiLocationMarker className="text-[#3B841F]" />
+            </label>
             <select
               className=" border border-[#3B841F]  text-sm rounded-lg bg-white block w-full p-3 focus:border-[#3B841F]"
               value={constituency}
@@ -109,13 +148,60 @@ const SelectCrop = ({ loggedInUserId }) => {
           borderBottom: "12px solid  #3B841F",
         }}
       ></p>
-      {selectionDone && (
-        <BestCropsToGrow
-          selectedCounty={selectedCountyId}
-          selectedCountyName={selectedCountyName}
-          loggedInUserId={loggedInUserId}
-        />
-      )}
+
+      <div>
+        <h1 className="text-3xl font-bold text-center text-[#3B841F] md:text-5xl ">
+          Best Crops to Grow in {selectedCountyName}
+        </h1>
+
+        <p className="text-center">
+          We've selected the Top Most Compatible crops according to your area
+          looking at your soil type, rainfall, temperature and other factors.
+        </p>
+        <div className="flex justify-center flex-wrap my-4 gap-12">
+          {selectionDone &&
+            bestCrops.map(
+              (crop) =>
+                crop.region === region && (
+                  <div className="flex flex-col  rounded-3xl  gap-4 w-[350px] bg-[#3B841F]">
+                    <img
+                      src={crop.image}
+                      alt={crop.name}
+                      className="w-[350px] h-[300px] rounded-t-3xl object-cover"
+                    />
+                    <div className="p-2 flex flex-col gap-2">
+                      <div className="flex justify-between mx-8">
+                        <p className="text-3xl text-white font-bold">
+                          {crop.name}
+                        </p>
+                        <p
+                          className="text-xl mt-1 text-white cursor-pointer flex   px-2 font-bold hover:bg-white hover:text-[#3B841F] transition-all duration-500 rounded-xl"
+                          onClick={() => addToMySelectedCrops(crop.id)}
+                        >
+                          Save This
+                        </p>
+                      </div>
+
+                      <div className="flex justify-between mx-8">
+                        <p className="text-2xl text-white">Maturity Period:</p>
+                        <p className="bg-white gap-2 px-4 py-2 rounded-xl text-[#3B841F] ">
+                          {crop.maturity_period}
+                        </p>
+                      </div>
+                      <div className="flex justify-between mx-8">
+                        <p className="text-sm text-white">
+                          Cost of Production Per acre :
+                        </p>
+                        <p className="bg-white gap-2 px-4 text-sm py-2 rounded-xl text-[#3B841F] ">
+                          {crop.cost_of_production_per_acre} KES
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+            )}
+        </div>
+      </div>
     </div>
   );
 };

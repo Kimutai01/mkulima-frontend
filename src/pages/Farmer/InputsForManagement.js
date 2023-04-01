@@ -73,7 +73,7 @@ const InputsForManagement = () => {
         Management Inputs for {name}
       </h1>
 
-      <p className="edunswact text-xl text-xl">
+      <p className="edunswact text-center text-xl text-xl">
         Here are some suggested inputs for {name} that you can buy from our
         local input suppliers.
       </p>

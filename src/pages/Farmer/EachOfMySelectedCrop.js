@@ -5,6 +5,7 @@ import Planting from "../../components/Farmer/Planting";
 import SiteSelection from "../../components/Farmer/SiteSelection";
 import Harvesting from "../../components/Farmer/Harvesting";
 import Management from "../../components/Farmer/Management";
+import Market from "../../components/Farmer/Market";
 import one from "../images/one.png";
 import two from "../images/two.png";
 import three from "../images/three.png";
@@ -34,7 +35,7 @@ const EachOfMySelectedCrop = () => {
     doc.setFont("helvetica", "bold");
     doc.text(0, 20, "Cost to Produce 1kg:");
     doc.setFont("helvetica", "normal");
-    doc.text(80, 20, my_selected_crop.cost_to_produce_kg);
+    doc.text(80, 20, my_selected_crop.cost_of_production_per_acre);
     doc.setFont("helvetica", "bold");
     doc.text(0, 30, "Average price of  1kg:");
     doc.setFont("helvetica", "normal");
@@ -150,7 +151,7 @@ const EachOfMySelectedCrop = () => {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between w-[50%] mx-auto">
                   <p className="text-[#3B841F]">Cost of production:</p>
-                  <p>{my_selected_crop.cost_to_produce_kg}</p>
+                  <p>{my_selected_crop.cost_of_production_per_acre}</p>
                 </div>
 
                 <p
@@ -159,11 +160,6 @@ const EachOfMySelectedCrop = () => {
                     borderBottom: "2px solid #7DD959",
                   }}
                 ></p>
-
-                <div className="flex justify-between w-[50%] mx-auto">
-                  <p className="text-[#3B841F]">Price per kg:</p>
-                  <p>{my_selected_crop.price_per_kg}</p>
-                </div>
               </div>
               <p className="my-4 w-[80%] mx-auto">
                 {my_selected_crop.description}
@@ -231,6 +227,16 @@ const EachOfMySelectedCrop = () => {
         >
           Harvesting
         </p>
+        <p
+          className={
+            stage === "market"
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer font-bold px-4 py-2 "
+          }
+          onClick={() => setStage("market")}
+        >
+          Market
+        </p>
       </div>
       <div>
         {stage === "site selection" && (
@@ -245,6 +251,7 @@ const EachOfMySelectedCrop = () => {
         {stage === "harvesting" && (
           <Harvesting my_selected_crop={my_selected_crop} />
         )}
+        {stage === "market" && <Market my_selected_crop={my_selected_crop} />}
       </div>
     </div>
   );

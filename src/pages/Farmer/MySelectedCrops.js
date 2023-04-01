@@ -68,7 +68,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
               <div className="flex justify-between mx-8">
                 <p className="text-xl text-[#000]">Cost of Production:</p>
                 <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
-                  {crop.plantable_crop.cost_to_produce_kg} KES
+                  {crop.plantable_crop.cost_of_production_per_acre} KES
                 </p>
               </div>
 
