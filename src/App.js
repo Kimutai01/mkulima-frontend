@@ -28,6 +28,8 @@ import InputsForManagement from "./pages/Farmer/InputsForManagement";
 import AdminHome from "./pages/AdminDashboard/AdminHome";
 import AdminNavBar from "./components/Navbars/AdminNavBar";
 import Approve from "./pages/AdminDashboard/Approve";
+import CommunityPage from "./pages/Farmer/CommunityPage";
+import EachCommunity from "./pages/Farmer/EachCommunity";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -122,6 +124,11 @@ function App() {
                 element={<MySelectedCrops loggedInUserId={loggedInUserId} />}
               />
               <Route
+                path="/CommunityPage"
+                element={<CommunityPage loggedInUserId={loggedInUserId} />}
+              />
+
+              <Route
                 path="/EachOfMySelectedCrop/:id"
                 element={<EachOfMySelectedCrop />}
               />
@@ -150,6 +157,11 @@ function App() {
                 path="/InputsForManagement/:name"
                 element={<InputsForManagement />}
               />
+              <Route
+                path="/EachCommunity/:id"
+                element={<EachCommunity loggedInUserId={loggedInUserId} />}
+              />
+
               <Route
                 path="/AllAnimalFeeds"
                 element={<AllAnimalFeeds loggedInUserId={loggedInUserId} />}

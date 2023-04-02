@@ -64,6 +64,12 @@ const FarmerNavBar = ({ setStoredToken }) => {
               </li>
             </Link>
 
+            <Link to="/CommunityPage">
+              <li className="ml-10 uppercase text-sm hover:border-b hover:border-y-black ">
+                Communities
+              </li>
+            </Link>
+
             <Link to="/">
               <li
                 className="ml-10 uppercase text-sm hover:border-b hover:border-y-black "
