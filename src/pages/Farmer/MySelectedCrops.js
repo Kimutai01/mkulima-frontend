@@ -59,20 +59,20 @@ const MySelectedCrops = ({ loggedInUserId }) => {
                 />
               </div>
 
-              <div className="flex justify-between mx-8">
+              <div className="flex flex-col mx-8">
                 <p className="text-xl text-[#000] ">Maturity Period:</p>
                 <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl font-bold text-white ">
                   {crop.plantable_crop.maturity_period}
                 </p>
               </div>
-              <div className="flex justify-between mx-8">
-                <p className="text-xl text-[#000]">Cost of Production:</p>
+              <div className="flex flex-col mx-8">
+                <p className="text-xl text-[#000]">Cost of Production Per Acre:</p>
                 <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
                   {crop.plantable_crop.cost_of_production_per_acre} KES
                 </p>
               </div>
 
-              <div className="flex justify-between mx-8">
+              <div className="flex flex-col mx-8">
                 <p className="text-xl text-[#000]">Price Per Kg:</p>
                 <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
                   {crop.plantable_crop.price_per_kg} KES
@@ -82,7 +82,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
 
             <div className="flex pb-4 justify-center">
               <Link to={`/EachOfMySelectedCrop/${crop.id}`}>
-                <button className="bg-gray-100 gap-2 px-6 py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
+                <button className="bg-gray-100 gap-2 px-6 shadow-xl shadow-[#3B841F] py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">
                   Get Started
                   <div className="flex mt-2 ">
                     <img

@@ -147,60 +147,63 @@ const SelectCrop = ({ loggedInUserId }) => {
           borderBottom: "12px solid  #3B841F",
         }}
       ></p>
+      {selectionDone && (
+        <div>
+          <h1 className="text-3xl font-bold text-center text-[#3B841F] md:text-5xl ">
+            Best Crops to Grow in {selectedCountyName}
+          </h1>
 
-      <div>
-        <h1 className="text-3xl font-bold text-center text-[#3B841F] md:text-5xl ">
-          Best Crops to Grow in {selectedCountyName}
-        </h1>
+          <p className="text-center">
+            We've selected the Top Most Compatible crops according to your area
+            looking at your soil type, rainfall, temperature and other factors.
+          </p>
+          <div className="flex justify-center flex-wrap my-4 gap-12">
+            {selectionDone &&
+              bestCrops.map(
+                (crop) =>
+                  crop.region === region && (
+                    <div className="flex flex-col  rounded-3xl  gap-4 w-[350px] bg-[#3B841F]">
+                      <img
+                        src={crop.image}
+                        alt={crop.name}
+                        className="w-[350px] h-[300px] rounded-t-3xl object-cover"
+                      />
+                      <div className="p-2 flex flex-col gap-2">
+                        <div className="flex justify-between  mx-8">
+                          <p className="text-3xl text-white font-bold">
+                            {crop.name}
+                          </p>
+                          <p
+                            className="text-xl mt-1 text-white cursor-pointer flex   px-2 font-bold hover:bg-white hover:text-[#3B841F] transition-all duration-500 rounded-xl"
+                            onClick={() => addToMySelectedCrops(crop.id)}
+                          >
+                            Save This
+                          </p>
+                        </div>
 
-        <p className="text-center">
-          We've selected the Top Most Compatible crops according to your area
-          looking at your soil type, rainfall, temperature and other factors.
-        </p>
-        <div className="flex justify-center flex-wrap my-4 gap-12">
-          {selectionDone &&
-            bestCrops.map(
-              (crop) =>
-                crop.region === region && (
-                  <div className="flex flex-col  rounded-3xl  gap-4 w-[350px] bg-[#3B841F]">
-                    <img
-                      src={crop.image}
-                      alt={crop.name}
-                      className="w-[350px] h-[300px] rounded-t-3xl object-cover"
-                    />
-                    <div className="p-2 flex flex-col gap-2">
-                      <div className="flex justify-between mx-8">
-                        <p className="text-3xl text-white font-bold">
-                          {crop.name}
-                        </p>
-                        <p
-                          className="text-xl mt-1 text-white cursor-pointer flex   px-2 font-bold hover:bg-white hover:text-[#3B841F] transition-all duration-500 rounded-xl"
-                          onClick={() => addToMySelectedCrops(crop.id)}
-                        >
-                          Save This
-                        </p>
-                      </div>
-
-                      <div className="flex justify-between mx-8">
-                        <p className="text-2xl text-white">Maturity Period:</p>
-                        <p className="bg-white gap-2 px-4 py-2 rounded-xl text-[#3B841F] ">
-                          {crop.maturity_period}
-                        </p>
-                      </div>
-                      <div className="flex justify-between mx-8">
-                        <p className="text-sm text-white">
-                          Cost of Production Per acre :
-                        </p>
-                        <p className="bg-white gap-2 px-4 text-sm py-2 rounded-xl text-[#3B841F] ">
-                          {crop.cost_of_production_per_acre} KES
-                        </p>
+                        <div className="flex flex-col  mx-8">
+                          <p className="text-2xl text-white">
+                            Maturity Period:
+                          </p>
+                          <p className="bg-white gap-2 px-4 py-2 rounded-xl text-[#3B841F] ">
+                            {crop.maturity_period}
+                          </p>
+                        </div>
+                        <div className="flex flex-col  mx-8">
+                          <p className="text-sm text-white">
+                            Cost of Production Per acre :
+                          </p>
+                          <p className="bg-white gap-2 px-4 text-sm py-2 rounded-xl text-[#3B841F] ">
+                            {crop.cost_of_production_per_acre} KES
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )
-            )}
+                  )
+              )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

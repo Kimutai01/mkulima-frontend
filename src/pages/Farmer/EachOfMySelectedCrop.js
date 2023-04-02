@@ -14,6 +14,7 @@ import { jsPDF } from "jspdf";
 const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
+
   const [stage, setStage] = useState("site selection");
   const [language, setLanguage] = useState("english");
   useEffect(() => {
@@ -252,7 +253,7 @@ const EachOfMySelectedCrop = () => {
                 extension officer on ${" "}
                 ${my_selected_crop.extension_officer_phone_number}`
                   : `Ikiwa utahitaji habari zaidi, unaweza kuwasiliana na yako kila wakati
-                afisa wa upanuzi kwenye ${ "" }
+                afisa wa upanuzi kwenye ${""}
                 ${my_selected_crop.extension_officer_phone_number}`}
               </p>
 
@@ -371,7 +372,13 @@ const EachOfMySelectedCrop = () => {
         {stage === "harvesting" && (
           <Harvesting my_selected_crop={my_selected_crop} language={language} />
         )}
-        {stage === "market" && <Market my_selected_crop={my_selected_crop} />}
+        {stage === "market" && (
+          <Market
+            my_selected_crop={my_selected_crop}
+            mySelectedCropId={my_selected_crop.id}
+            language={language}
+          />
+        )}
       </div>
     </div>
   );
