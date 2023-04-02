@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-const Market = ({ my_selected_crop, language, mySelectedCropId }) => {
+const Market = ({ my_selected_crop, mySelectedCropId, language }) => {
   const [prices, setPrices] = useState([]);
 
   useEffect(() => {
@@ -45,7 +45,10 @@ const Market = ({ my_selected_crop, language, mySelectedCropId }) => {
       },
       title: {
         display: true,
-        text: "Market Prices Over The Last Year",
+        text:
+          language === "english"
+            ? "Market Prices Over a Year "
+            : "Bei ya bidhaa kwa muda wa mwaka mmoja",
       },
     },
   };
@@ -69,14 +72,20 @@ const Market = ({ my_selected_crop, language, mySelectedCropId }) => {
     labels,
     datasets: [
       {
-        label: "Retail Price in Ksh Per Kg",
+        label:
+          language === "english"
+            ? "Retail Price in Ksh Per Kg"
+            : "Bei ya Rejareja kwa ksh kwa kilo",
         data: prices.map((price) => price.retail_price),
 
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: "Whole Sale Price in Ksh Per Kg",
+        label:
+          language === "english"
+            ? "Wholesale Price in Ksh Per Kg"
+            : "Bei ya Jumla kwa Ksh Kwa Kg ",
         data: prices.map((price) => price.wholesale_price),
 
         borderColor: "rgb(53, 162, 235)",
