@@ -1,7 +1,7 @@
 import React from "react";
 import plantingcrop from "../images/plantingcrop.png";
 import { useNavigate } from "react-router-dom";
-const Harvesting = ({ my_selected_crop }) => {
+const Harvesting = ({ my_selected_crop, language }) => {
   const navigate = useNavigate();
   return (
     <div className="  flex  flex-col gap-4 mx-auto">
@@ -12,7 +12,9 @@ const Harvesting = ({ my_selected_crop }) => {
             navigate("/AddProductsForSale");
           }}
         >
-          Sell High Quality {my_selected_crop.name} Harvest to Market Directly
+          {language === "english"
+            ? "Sell High Quality Harvest"
+            : "Uuzaji wa Kuvuna cha Juu"}
         </button>
 
         <button
@@ -21,7 +23,9 @@ const Harvesting = ({ my_selected_crop }) => {
             navigate("/AddAnimalFeeds");
           }}
         >
-          Sell Low Quality {my_selected_crop.name} Harvest to Livestock Farmers.
+          {language === "english"
+            ? "Sell Residue to LiveStock Farmers"
+            : "Uuzaji wa Mavuno mabaya kwa Wafugaji"}
         </button>
       </div>
       <div className="w-[80%]  flex  justify-center mx-auto">
@@ -29,20 +33,28 @@ const Harvesting = ({ my_selected_crop }) => {
           <div className="justify-start flex  pl-4 gap-12">
             <img src={plantingcrop} alt="plantingcrop" />
             <p className="text-2xl text-[#3B841F] flex items-center font-bold">
-              Harvesting
+              {language === "english" ? "Harvesting" : "Kuvuna"}
             </p>
           </div>
-          <p className="w-[80%] mt-4 mx-auto">{my_selected_crop.harvesting}</p>
+          <p className="w-[80%] mt-4 mx-auto">
+            {language === "english"
+              ? my_selected_crop.harvesting
+              : my_selected_crop.uvunaji}
+          </p>
         </div>
         <div className="w-[600px]  h-[500px] shadow-2xl shadow-gray-200 mx-auto hover:scale-105 cursor-pointer transform transition duration-500 ease-in-out">
           <div className="justify-start flex  pl-4 gap-12">
             <img src={plantingcrop} alt="plantingcrop" />
             <p className="text-2xl text-[#3B841F] flex items-center font-bold">
-              Storage
+              {language === "english" ? "Storage" : "Kuhifadhi"}
             </p>
           </div>
 
-          <p className="w-[80%] mt-4 mx-auto">{my_selected_crop.storage}</p>
+          <p className="w-[80%] mt-4 mx-auto">
+            {language === "english"
+              ? my_selected_crop.storage
+              : my_selected_crop.uhifadhi}
+          </p>
         </div>
       </div>
     </div>

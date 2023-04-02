@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { HiDownload } from "react-icons/hi";
 import Planting from "../../components/Farmer/Planting";
 import SiteSelection from "../../components/Farmer/SiteSelection";
@@ -15,6 +15,7 @@ const EachOfMySelectedCrop = () => {
   const { id } = useParams();
   const [my_selected_crop, setMySelectedCrop] = useState({});
   const [stage, setStage] = useState("site selection");
+  const [language, setLanguage] = useState("english");
   useEffect(() => {
     fetch(`http://127.0.0.1:3000/selected_crops/${id}`)
       .then((response) => response.json())
@@ -33,13 +34,13 @@ const EachOfMySelectedCrop = () => {
     doc.setFont("helvetica", "bold");
     doc.text(0, 10, my_selected_crop.name);
     doc.setFont("helvetica", "bold");
-    doc.text(0, 20, "Cost to Produce 1kg:");
+    doc.text(0, 20, "Cost to Production per acre:");
     doc.setFont("helvetica", "normal");
     doc.text(80, 20, my_selected_crop.cost_of_production_per_acre);
     doc.setFont("helvetica", "bold");
-    doc.text(0, 30, "Average price of  1kg:");
+    doc.text(0, 30, "Best Variety to grow:");
     doc.setFont("helvetica", "normal");
-    doc.text(80, 30, my_selected_crop.price_per_kg);
+    doc.text(80, 30, my_selected_crop.variety);
     doc.setFont("helvetica", "bold");
     doc.text(0, 40, "Extension Officer Number:");
     doc.setFont("helvetica", "normal");
@@ -73,12 +74,64 @@ const EachOfMySelectedCrop = () => {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     doc.text(0, 235, my_selected_crop.storage);
-
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
     doc.text(0, 280, "Thank you for using mche");
 
     doc.save(`${my_selected_crop.name} mche.pdf `);
+  };
+
+  const donwloadKiswahili = () => {
+    const doc = new jsPDF();
+
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 10, my_selected_crop.jina);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 20, "gharama ya uzalishaji kwa ekari :");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 20, my_selected_crop.cost_of_production_per_acre);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 30, "Aina bora ya kuzalisha:");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 30, my_selected_crop.variety);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 40, "Namba ya mtaalamu wa kilimo:");
+    doc.setFont("helvetica", "normal");
+    doc.text(80, 40, my_selected_crop.extension_officer_phone_number);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 50, "Uandaji wa ardhi:");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 55, my_selected_crop.uteuzi_wa_tovuti);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 80, "Kupanda ");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 85, my_selected_crop.kupanda);
+    doc.setFontSize(20);
+    doc.setFont("helvetica", "bold");
+    doc.text(0, 120, "Usimamizi_wa_mazao");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 125, my_selected_crop.usimamizi_wa_mazao);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 180, "Kuvuna");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 185, my_selected_crop.uvunaji);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 230, "Hifadhi");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(0, 235, my_selected_crop.uhifadhi);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text(0, 280, "Asante kwa kutumia mche");
+
+    doc.save(`${my_selected_crop.jina} mche.pdf `);
   };
 
   return (
@@ -87,7 +140,7 @@ const EachOfMySelectedCrop = () => {
         {stage === "site selection" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
             <h1 className="justify-center edunswact text-5xl flex items-center">
-              Plan
+              {language === "english" ? "Plan" : "Kuandaa"}
             </h1>
             <img src={one} alt="one" className="w-20" />
           </div>
@@ -95,7 +148,7 @@ const EachOfMySelectedCrop = () => {
         {stage === "planting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
             <h1 className="justify-center edunswact text-5xl flex items-center">
-              Plant
+              {language === "english" ? "Plant" : "Kupanda"}
             </h1>
             <img src={two} alt="two" className="w-20" />
           </div>
@@ -103,7 +156,7 @@ const EachOfMySelectedCrop = () => {
         {stage === "harvesting" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
             <h1 className="justify-center  edunswact text-5xl flex items-center">
-              Harvest
+              {language === "english" ? "Harvest" : "Kuvuna"}
             </h1>
             <img src={four} alt="four" className="w-20" />
           </div>
@@ -111,18 +164,24 @@ const EachOfMySelectedCrop = () => {
         {stage === "management" && (
           <div className="text-xl font-bold text-center flex justify-center gap-2   text-[#3B841F] md:text-5xl ">
             <h1 className="justify-center edunswact text-5xl flex items-center">
-              Grow
+              {language === "english" ? "Manage" : "Kupanga"}
             </h1>
             <img src={three} alt="three" className="w-20" />
           </div>
         )}
 
         <div className="flex justify-center gap-4">
-          <p className="text-3xl text-[#3B841F] ">Choose your Location</p>
+          <p className="text-3xl text-[#3B841F] ">
+            {language === "english" ? "Choose your Site" : "Chagua eneo lako"}
+          </p>
           <p className="mb-2 text-gray-400   text-xl">................</p>
-          <p className="text-3xl  text-[#3B841F]">Choose your Crop</p>
+          <p className="text-3xl  text-[#3B841F]">
+            {language === "english" ? "Choose your crop" : "Chagua mbegu yako"}
+          </p>
           <p className="mb-2 text-gray-400 text-xl">................</p>
-          <p className="text-3xl  text-[#3B841F]">Advisory</p>
+          <p className="text-3xl  text-[#3B841F]">
+            {language === "english" ? "Advisory" : "Ushauri"}
+          </p>
         </div>
       </div>
 
@@ -131,21 +190,70 @@ const EachOfMySelectedCrop = () => {
           <div className="flex justify-center gap-12">
             <div className="w-1/2 text-center flex justify-center flex-col gap-2">
               <h1 className="text-[#3B841F] text-5xl my-4">
-                {my_selected_crop.name}
+                {language === "english"
+                  ? my_selected_crop.name
+                  : my_selected_crop.jina}
               </h1>
 
+              <h1 className="text-xm text-center text-[#3B841F] ">
+                Choose the language you want to use for the advisory
+              </h1>
+
+              <div className="flex justify-center">
+                <div
+                  className="flex border rounded-l-2xl  py-2 px-4 justify-center gap-2"
+                  style={{
+                    border: "2px solid #3B841F",
+                  }}
+                >
+                  <input
+                    type="radio"
+                    name="language"
+                    id="english"
+                    value="english"
+                    onChange={(e) => setLanguage(e.target.value)}
+                  />
+                  <label htmlFor="english">English</label>
+                </div>
+
+                <div
+                  className="flex border rounded-r-2xl  py-2 px-4 justify-center gap-2"
+                  style={{
+                    border: "2px solid #3B841F",
+                    borderLeft: "none",
+                  }}
+                >
+                  <input
+                    type="radio"
+                    name="language"
+                    id="kiswahili"
+                    value="kiswahili"
+                    onChange={(e) => setLanguage(e.target.value)}
+                  />
+                  <label htmlFor="kiswahili">Kiswahili</label>
+                </div>
+              </div>
+
               <p className="font-italic">
-                Thinking of growing
-                {my_selected_crop.name}?
+                {language === "english"
+                  ? `Thinking of growing
+                  ${my_selected_crop.name}?`
+                  : `Unafikiria kukuza
+                  ${my_selected_crop.jina}?`}
               </p>
               <p>
-                Here's a short summary of what exactly you might need to
-                consider.
+                {language === "english"
+                  ? "Here's a short summary of what exactly you might need to consider"
+                  : "Hapa kuna muhtasari wa kina kuhusu mambo unayoweza kufikiria"}
               </p>
               <p className="font-bold text-xl edunswact ">
-                In case you need more information, you can always contact your
-                extension officer on{" "}
-                {my_selected_crop.extension_officer_phone_number}
+                {language === "english"
+                  ? `  In case you need more information, you can always contact your
+                extension officer on ${" "}
+                ${my_selected_crop.extension_officer_phone_number}`
+                  : `Ikiwa utahitaji habari zaidi, unaweza kuwasiliana na yako kila wakati
+                afisa wa upanuzi kwenye ${ "" }
+                ${my_selected_crop.extension_officer_phone_number}`}
               </p>
 
               <div className="flex flex-col gap-2">
@@ -162,15 +270,24 @@ const EachOfMySelectedCrop = () => {
                 ></p>
               </div>
               <p className="my-4 w-[80%] mx-auto">
-                {my_selected_crop.description}
+                {language === "english"
+                  ? my_selected_crop.description
+                  : my_selected_crop.maelezo}
               </p>
 
               <div className="flex justify-center gap-4">
                 <button
                   className="bg-[#7DD959] text-white px-4 py-2 flex justify-center gap-2 rounded-lg"
-                  onClick={() => downloadPdf()}
+                  onClick={() => {
+                    if (language === "english") {
+                      downloadPdf();
+                    }
+                    if (language === "kiswahili") {
+                      donwloadKiswahili();
+                    }
+                  }}
                 >
-                  Download Plant Advisory
+                  {language === "english" ? "Download Pdf" : "Pakua Pdf"}{" "}
                   <HiDownload className="text-white text-2xl" />
                 </button>
               </div>
@@ -195,7 +312,7 @@ const EachOfMySelectedCrop = () => {
           }
           onClick={() => setStage("site selection")}
         >
-          Site Selection
+          {language === "english" ? "Site Selection" : "Uchaguzi wa eneo"}
         </p>
         <p
           className={
@@ -205,7 +322,7 @@ const EachOfMySelectedCrop = () => {
           }
           onClick={() => setStage("planting")}
         >
-          Planting
+          {language === "english" ? "Planting" : "Kuandaa mazao"}
         </p>
         <p
           className={
@@ -215,7 +332,7 @@ const EachOfMySelectedCrop = () => {
           }
           onClick={() => setStage("management")}
         >
-          Management
+          {language === "english" ? "Management" : "Usimamizi"}
         </p>
         <p
           className={
@@ -225,7 +342,7 @@ const EachOfMySelectedCrop = () => {
           }
           onClick={() => setStage("harvesting")}
         >
-          Harvesting
+          {language === "english" ? "Harvesting" : "Kuvuna"}
         </p>
         <p
           className={
@@ -235,21 +352,24 @@ const EachOfMySelectedCrop = () => {
           }
           onClick={() => setStage("market")}
         >
-          Market
+          {language === "english" ? "Market" : "Soko"}
         </p>
       </div>
       <div>
         {stage === "site selection" && (
-          <SiteSelection my_selected_crop={my_selected_crop} />
+          <SiteSelection
+            my_selected_crop={my_selected_crop}
+            language={language}
+          />
         )}
         {stage === "planting" && (
-          <Planting my_selected_crop={my_selected_crop} />
+          <Planting my_selected_crop={my_selected_crop} language={language} />
         )}
         {stage === "management" && (
-          <Management my_selected_crop={my_selected_crop} />
+          <Management my_selected_crop={my_selected_crop} language={language} />
         )}
         {stage === "harvesting" && (
-          <Harvesting my_selected_crop={my_selected_crop} />
+          <Harvesting my_selected_crop={my_selected_crop} language={language} />
         )}
         {stage === "market" && <Market my_selected_crop={my_selected_crop} />}
       </div>

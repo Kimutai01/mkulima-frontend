@@ -1,7 +1,7 @@
 import React from "react";
 import plantingcrop from "../images/plantingcrop.png";
 import { useNavigate } from "react-router-dom";
-const Management = ({ my_selected_crop }) => {
+const Management = ({ my_selected_crop, language }) => {
   const navigate = useNavigate();
   return (
     <div className="  flex  flex-col gap-4 mx-auto">
@@ -12,7 +12,9 @@ const Management = ({ my_selected_crop }) => {
             navigate(`/InputsForManagement/${my_selected_crop.name}`);
           }}
         >
-          Buy Inputs for Management of {my_selected_crop.name}
+          {language === "english"
+            ? "Buy Management Inputs eg herbicides"
+            : "Nunua Uingizaji wa kupanda kwa mfano    dawa za kuua magugu"}
         </button>
       </div>
       <div className="w-[80%] pt-4 flex  justify-center mx-auto">
@@ -20,30 +22,40 @@ const Management = ({ my_selected_crop }) => {
           <div className="justify-start flex  pl-4 gap-12">
             <img src={plantingcrop} alt="plantingcrop" />
             <p className="text-2xl text-[#3B841F] flex items-center font-bold">
-              Crop Management
+              {language === "english"
+                ? "Crop Management"
+                : "Uendeshaji wa mbegu"}
             </p>
           </div>
           <p className="w-[80%] mt-4 mx-auto">
-            {my_selected_crop.crop_management}
+            {language === "english"
+              ? my_selected_crop.crop_management
+              : my_selected_crop.usimamizi_wa_mazao}
           </p>
         </div>
         <div className="w-[600px]  h-[500px] shadow-2xl shadow-gray-200 mx-auto hover:scale-105 cursor-pointer transform transition duration-500 ease-in-out">
           <div className="justify-start flex  pl-4 gap-12">
             <img src={plantingcrop} alt="plantingcrop" />
             <p className="text-2xl text-[#3B841F] flex items-center font-bold">
-              Water Management
+              {language === "english"
+                ? "Water Management"
+                : " Usimamizi wa maji"}
             </p>
           </div>
           <p className="w-[80%] mt-4 mx-auto">
-            {my_selected_crop.water_management}
+            {language === "english"
+              ? my_selected_crop.water_management
+              : my_selected_crop.usimamizi_wa_maji}
           </p>
 
           <h1 className="text-center my-2 text-[#3B841F] text-2xl font-bold ">
-            Weed Management
+            {language === "english" ? "Weed Management" : "Usimamizi wa magugu"}
           </h1>
 
           <p className="w-[80%] mt-4 mx-auto">
-            {my_selected_crop.weed_management}
+            {language === "english"
+              ? my_selected_crop.weed_management
+              : my_selected_crop.usimamizi_wa_magugu}
           </p>
         </div>
       </div>
