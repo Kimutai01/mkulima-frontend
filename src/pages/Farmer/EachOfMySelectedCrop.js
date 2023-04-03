@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { HiDownload } from "react-icons/hi";
 import Planting from "../../components/Farmer/Planting";
 import SiteSelection from "../../components/Farmer/SiteSelection";
@@ -337,16 +337,6 @@ const EachOfMySelectedCrop = () => {
         </p>
         <p
           className={
-            stage === "harvesting"
-              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
-              : "text-xl  cursor-pointer font-bold px-4 py-2"
-          }
-          onClick={() => setStage("harvesting")}
-        >
-          {language === "english" ? "Harvesting" : "Kuvuna"}
-        </p>
-        <p
-          className={
             stage === "market"
               ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
               : "text-xl  cursor-pointer font-bold px-4 py-2 "
@@ -354,6 +344,16 @@ const EachOfMySelectedCrop = () => {
           onClick={() => setStage("market")}
         >
           {language === "english" ? "Market" : "Soko"}
+        </p>
+        <p
+          className={
+            stage === "harvesting"
+              ? "text-xl text-white bg-[#3B841F] cursor-pointer px-4 py-2 font-semibold "
+              : "text-xl  cursor-pointer font-bold px-4 py-2"
+          }
+          onClick={() => setStage("harvesting")}
+        >
+          {language === "english" ? "Harvesting" : "Kuvuna"}
         </p>
       </div>
       <div>
@@ -369,15 +369,15 @@ const EachOfMySelectedCrop = () => {
         {stage === "management" && (
           <Management my_selected_crop={my_selected_crop} language={language} />
         )}
-        {stage === "harvesting" && (
-          <Harvesting my_selected_crop={my_selected_crop} language={language} />
-        )}
         {stage === "market" && (
           <Market
             my_selected_crop={my_selected_crop}
             mySelectedCropId={my_selected_crop.id}
             language={language}
           />
+        )}
+        {stage === "harvesting" && (
+          <Harvesting my_selected_crop={my_selected_crop} language={language} />
         )}
       </div>
     </div>

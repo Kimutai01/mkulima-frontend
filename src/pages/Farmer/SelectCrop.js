@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import one from "../images/one.png";
 import { HiLocationMarker } from "react-icons/hi";
+import { VscTriangleUp } from "react-icons/vsc";
+import { VscTriangleDown } from "react-icons/vsc";
 const SelectCrop = ({ loggedInUserId }) => {
   const [counties, setCounties] = useState([]);
   const [constituencies, setConstituencies] = useState([]);
@@ -174,21 +176,13 @@ const SelectCrop = ({ loggedInUserId }) => {
                             {crop.name}
                           </p>
                           <p
-                            className="text-xl mt-1 text-white cursor-pointer flex   px-2 font-bold hover:bg-white hover:text-[#3B841F] transition-all duration-500 rounded-xl"
+                            className="text-xl mt-1 cursor-pointer animate-bounce flex   px-2 font-bold bg-white  transition-all duration-500 rounded-xl"
                             onClick={() => addToMySelectedCrops(crop.id)}
                           >
-                            Save This
+                            Select
                           </p>
                         </div>
 
-                        <div className="flex flex-col  mx-8">
-                          <p className="text-2xl text-white">
-                            Maturity Period:
-                          </p>
-                          <p className="bg-white gap-2 px-4 py-2 rounded-xl text-[#3B841F] ">
-                            {crop.maturity_period}
-                          </p>
-                        </div>
                         <div className="flex flex-col  mx-8">
                           <p className="text-sm text-white">
                             Cost of Production Per acre :
@@ -196,6 +190,47 @@ const SelectCrop = ({ loggedInUserId }) => {
                           <p className="bg-white gap-2 px-4 text-sm py-2 rounded-xl text-[#3B841F] ">
                             {crop.cost_of_production_per_acre} KES
                           </p>
+                        </div>
+                        <div className="flex flex-col gap-2  mx-8">
+                          <p className="text-sm text-white">
+                            Current Market Price :
+                          </p>
+                          <div className="bg-white p-2 gap-2 px-4 flex flex-col gap-2 text-sm py-2 rounded-xl text-[#3B841F] ">
+                            <p className="text-black">Retail Price per Kg :</p>
+                            <div className="flex justify-between">
+                              <p>{crop.current_retail_price} KES</p>
+                              <div className="flex gap-1">
+                                {crop.retail_diff > 0 ? (
+                                  <VscTriangleUp size={20} className="text-green-500" />
+                                ) : (
+                                  <VscTriangleDown size={20} className="text-red-500" />
+                                )}
+                                <p>{crop.retail_diff}</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-white p-2 gap-2 px-4 flex flex-col gap-2 text-sm py-2 rounded-xl text-[#3B841F] ">
+                            <p className="text-black">
+                              Wholesale Price per Kg :
+                            </p>
+                            <div className="flex justify-between">
+                              <p>{crop.current_wholesale_price} KES</p>
+                              <div className="flex gap-1">
+                                {crop.wholesale_diff > 0 ? (
+                                  <VscTriangleUp size={20} className="text-green-500" />
+                                ) : (
+                                  <VscTriangleDown size={20} className="text-red-500" />
+                                )}
+                                <p>
+                                  {crop.wholesale_diff}
+                                  {crop.wholesale_diff > 0
+                                    ? "% rise"
+                                    : "% drop"}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

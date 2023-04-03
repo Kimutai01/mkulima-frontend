@@ -41,7 +41,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
 
       <div className="flex justify-center flex-wrap my-4 gap-12">
         {mySelectedCrops.map((crop) => (
-          <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
+          <div className="flex hover:scale-105 transition-all duration-500 cursor-pointer flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img
               src={crop.plantable_crop.image}
               className="w-[400px] h-[300px] rounded-t-3xl object-cover"
@@ -58,28 +58,7 @@ const MySelectedCrops = ({ loggedInUserId }) => {
                   className="text-[#3B841F] text-xl cursor-pointer hover:scale-110 transform transition duration-500 ease-in-out"
                 />
               </div>
-
-              <div className="flex flex-col mx-8">
-                <p className="text-xl text-[#000] ">Maturity Period:</p>
-                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl font-bold text-white ">
-                  {crop.plantable_crop.maturity_period}
-                </p>
-              </div>
-              <div className="flex flex-col mx-8">
-                <p className="text-xl text-[#000]">Cost of Production Per Acre:</p>
-                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
-                  {crop.plantable_crop.cost_of_production_per_acre} KES
-                </p>
-              </div>
-
-              <div className="flex flex-col mx-8">
-                <p className="text-xl text-[#000]">Price Per Kg:</p>
-                <p className="bg-[#3B841F] gap-2 px-4 py-2 rounded-xl text-white ">
-                  {crop.plantable_crop.price_per_kg} KES
-                </p>
-              </div>
             </div>
-
             <div className="flex pb-4 justify-center">
               <Link to={`/EachOfMySelectedCrop/${crop.id}`}>
                 <button className="bg-gray-100 gap-2 px-6 shadow-xl shadow-[#3B841F] py-4 rounded-xl font-bold text-[#3B841F] my-2 justify-center place-content-center flex text-md">

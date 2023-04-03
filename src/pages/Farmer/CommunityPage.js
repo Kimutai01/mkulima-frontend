@@ -14,29 +14,25 @@ const CommunityPage = ({ loggedInUserId }) => {
 
   const displayCommunities = communities.map((community) => (
     <Link
-      className="flex p-4 my-4 w-[200px]  rounded-xl hover:scale-105 transition-all duration-500 cursor-pointer flex-col bg-[#93C572]"
+      className="flex p-4 kulim-park my-4 w-[300px] h-[200px]  text-gray-100 rounded-xl hover:scale-105 transition-all duration-500 cursor-pointer flex-col bg-[#7DD95A]"
       to={`/EachCommunity/${community.id}`}
     >
       <p>
-        <span className="font-bold">Name:</span> {community.name}
+        <span className="font-bold">{community.name}</span>
       </p>
-      <div className="flex flex-row-reverse">
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-          class="w-10 h-10 rounded-full border-2 border-white"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
-        />
+      <p>
+        <span className="edunswact text-black">{community.description}</span>
+      </p>
+      <div className="flex flex-row">
+        {community.users.map((user) => (
+          <div className="flex justify-center relative bg-gradient-to-b  from-blue-500 overflow-hidden rounded-full w-12 h-12  mt-5">
+            <img
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              src={user.profile_picture}
+              alt={user.username}
+            />
+          </div>
+        ))}
       </div>
       <p>{community.total_users} members</p>
     </Link>

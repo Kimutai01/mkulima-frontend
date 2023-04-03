@@ -14,7 +14,7 @@ const Harvesting = ({ my_selected_crop, language }) => {
         >
           {language === "english"
             ? "Sell High Quality Harvest"
-            : "Uuzaji wa Kuvuna cha Juu"}
+            : "Uuzaji wa Kuvuna cha Juu Sokoni"}
         </button>
 
         <button

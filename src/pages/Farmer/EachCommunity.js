@@ -14,7 +14,7 @@ const EachCommunity = ({ loggedInUserId }) => {
       .then((data) => {
         setCommunity(data);
       });
-  }, [community]);
+  }, [community, id]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/communities/${id}`)
@@ -30,7 +30,7 @@ const EachCommunity = ({ loggedInUserId }) => {
           );
         }
       });
-  }, [filterQuery]);
+  }, [filterQuery, messages, id]);
   const sendMessage = (e) => {
     e.preventDefault();
     if (textMessage !== "") {
@@ -58,12 +58,11 @@ const EachCommunity = ({ loggedInUserId }) => {
       <div className="flex justify-center">
         <input
           type="text"
-          placeholder="Search for a product"
-          className="form-control w-[50%] mb-2 "
+          placeholder="Search for a message"
+          className="form-control w-[50%] h-[50px] p-2 mb-2 border-2 border-gray-200 rounded-xl"
           value={filterQuery}
           onChange={(e) => {
             setFilterQuery(e.target.value);
-            console.log(e.target.value);
           }}
         />
       </div>
