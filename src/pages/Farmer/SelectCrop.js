@@ -205,7 +205,12 @@ const SelectCrop = ({ loggedInUserId }) => {
                                 ) : (
                                   <VscTriangleDown size={20} className="text-red-500" />
                                 )}
-                                <p>{crop.retail_diff}</p>
+                                 <p>
+                                  {crop.retail_diff}
+                                  {crop.retail_diff > 0
+                                    ? "% rise"
+                                    : "% drop"}
+                                </p>
                               </div>
                             </div>
                           </div>

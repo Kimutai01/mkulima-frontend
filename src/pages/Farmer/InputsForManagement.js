@@ -22,7 +22,7 @@ const InputsForManagement = () => {
     suggested_inputs.map(
       (input) =>
         input.approved === true &&
-        input.type_of_supply === "herbicide" || input.type_of_supply === "pesticide" &&
+        input.type_of_supply === "management_inputs" &&
         input.crop_for === name && (
           <div className="flex flex-col rounded-3xl  gap-4 w-[400px] bg-[#f9f9f9]">
             <img

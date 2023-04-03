@@ -259,8 +259,12 @@ const EachOfMySelectedCrop = () => {
 
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between w-[50%] mx-auto">
-                  <p className="text-[#3B841F]">Cost of production:</p>
-                  <p>{my_selected_crop.cost_of_production_per_acre}</p>
+                  <p className="text-[#3B841F]">
+                    {language === "english"
+                      ? "Cost of production"
+                      : "Gharama ya uzalishaji"}
+                  </p>
+                  <p>{my_selected_crop.cost_of_production_per_acre} {language === "english" ? "Ksh Per acre" : "Ksh Kwa Ekari"}</p>
                 </div>
 
                 <p

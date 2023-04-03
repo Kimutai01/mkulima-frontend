@@ -120,10 +120,9 @@ const AddSuppliedInput = ({ loggedInUserId }) => {
                     >
                       <option value="">Select</option>
 
-                      <option value="fertilizer">Fertilizer</option>
-                      <option value="seed">Seed</option>
-                      <option value="pesticide">Pesticide</option>
-                      <option value="herbicide">Herbicide</option>
+                      <option value="planting_inputs">Planting Inputs eg fertilizers, seeds</option>
+                      <option value="management_inputs">Management Inputs eg pesticides, herbicides</option>
+                      
                     </select>
                   </div>
                 </div>
