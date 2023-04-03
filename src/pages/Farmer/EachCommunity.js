@@ -76,33 +76,34 @@ const EachCommunity = ({ loggedInUserId }) => {
             <div
               className={
                 message.user_id === loggedInUserId
-                  ? "flex justify-end px-2  "
+                  ? "flex justify-end px-2"
                   : "flex justify-start px-2"
               }
             >
               <div
                 className={
                   message.user_id === loggedInUserId
-                    ? "flex flex-col  px-2 bg-gray-100 p-2 rounded-xl  "
-                    : "flex flex-col px-2 bg-[#3B841F] p-2 rounded-xl text-white"
+                    ? "bg-green-100 p-2 rounded-xl"
+                    : "bg-gray-100 p-2 rounded-xl"
                 }
               >
                 <p
-                  className=" quicksand md:max-w-[100%]
-                      text-start
-                    max-w-[90%] "
+                  className={
+                    message.user_id === loggedInUserId
+                      ? "text-start text-black"
+                      : "text-start text-gray-700"
+                  }
                 >
                   {message.text}
                 </p>
                 {message.user_id !== loggedInUserId && (
-                  <div className="flex my-4 gap-2">
+                  <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
                     <img
                       src={message.user_profile}
                       className="w-8 h-8 rounded-full"
                       alt="customer"
                     />
-
-                    <p className="font-bold text-xl">{message.user_name}</p>
+                    <p className="font-bold">{message.user_name}</p>
                   </div>
                 )}
               </div>
@@ -114,12 +115,12 @@ const EachCommunity = ({ loggedInUserId }) => {
             type={"text"}
             value={textMessage}
             onChange={(e) => setTextMessage(e.target.value)}
-            className=" border border-gray-300 h-[100px]  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            className="border border-gray-300 h-[100px]  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Type your message here..."
           />
           <FiSend
             size={25}
-            className="absolute right-2 cursor-pointer hover:scale-105 transition-all duration-500 bottom-2 "
+            className="absolute right-2 cursor-pointer hover:scale-105 transition-all duration-500 bottom-2"
             onClick={sendMessage}
           />
         </div>
