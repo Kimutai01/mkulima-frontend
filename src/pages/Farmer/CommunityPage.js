@@ -14,15 +14,30 @@ const CommunityPage = ({ loggedInUserId }) => {
 
   const displayCommunities = communities.map((community) => (
     <Link
-      className="flex bg-gray-100 p-4 my-4 w-[500px] rounded-xl hover:scale-105 transition-all duration-500 cursor-pointer flex-col items-center justify-center"
+      className="flex p-4 my-4 w-[200px]  rounded-xl hover:scale-105 transition-all duration-500 cursor-pointer flex-col bg-[#93C572]"
       to={`/EachCommunity/${community.id}`}
     >
       <p>
         <span className="font-bold">Name:</span> {community.name}
       </p>
-      <p>
-        <span className="font-bold">Description:</span> {community.description}
-      </p>
+      <div className="flex flex-row-reverse">
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+          class="w-10 h-10 rounded-full border-2 border-white"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+          class="w-10 h-10 rounded-full border-2 border-white -ml-3"
+        />
+      </div>
       <p>{community.total_users} members</p>
     </Link>
   ));
@@ -38,7 +53,7 @@ const CommunityPage = ({ loggedInUserId }) => {
         you.
       </p>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="items-center justify-center grid grid-cols-3 px-60 ">
         {displayCommunities}
       </div>
     </div>
