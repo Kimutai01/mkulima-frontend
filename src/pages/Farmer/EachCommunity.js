@@ -67,7 +67,7 @@ const EachCommunity = ({ loggedInUserId }) => {
           }}
         />
       </div>
-      <div className="w-[50%] mx-auto h-72 overflow-y-scroll flex flex-col justify-between shadow-gray-200 shadow-xl">
+      <div className="w-[50%] mx-auto h-[600px] overflow-y-scroll flex flex-col justify-between shadow-gray-200 shadow-xl">
         <div
           className="flex flex-col gap-2 overflow-y-scroll"
           style={{ height: "calc(100% - 60px)" }}
