@@ -6,17 +6,31 @@ const EachCommunity = ({ loggedInUserId }) => {
   const [community, setCommunity] = useState({});
   const [messages, setMessages] = useState([]);
   const [textMessage, setTextMessage] = useState("");
-
+  const [filterQuery, setFilterQuery] = useState("");
   const { id } = useParams();
   useEffect(() => {
     fetch(`http://localhost:3000/communities/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCommunity(data);
-        setMessages(data.messages);
       });
   }, [community]);
 
+  useEffect(() => {
+    fetch(`http://localhost:3000/communities/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!filterQuery) {
+          setMessages(data.messages);
+        } else {
+          setMessages(
+            data.messages.filter((message) =>
+              message.text.toLowerCase().includes(filterQuery.toLowerCase())
+            )
+          );
+        }
+      });
+  }, [filterQuery]);
   const sendMessage = (e) => {
     e.preventDefault();
     if (textMessage !== "") {
@@ -41,6 +55,18 @@ const EachCommunity = ({ loggedInUserId }) => {
 
   return (
     <div className="pt-24">
+      <div className="flex justify-center">
+        <input
+          type="text"
+          placeholder="Search for a product"
+          className="form-control w-[50%] mb-2 "
+          value={filterQuery}
+          onChange={(e) => {
+            setFilterQuery(e.target.value);
+            console.log(e.target.value);
+          }}
+        />
+      </div>
       <div className="w-[50%]  mx-auto min-h-[80vh] flex flex-col justify-between shadow-gray-200 shadow-xl ">
         <div className="flex flex-col gap-2">
           {messages.map((message) => (
