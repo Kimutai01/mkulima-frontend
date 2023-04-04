@@ -13,7 +13,7 @@ const Management = ({ my_selected_crop, language }) => {
           }}
         >
           {language === "english"
-            ? "Buy Management Inputs eg herbicides"
+            ? "Buy Management Inputs eg herbicides and insecticides"
             : "Nunua Uingizaji wa kupanda kwa mfano    dawa za kuua magugu"}
         </button>
       </div>

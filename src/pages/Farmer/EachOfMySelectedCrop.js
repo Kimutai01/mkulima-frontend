@@ -79,7 +79,7 @@ const EachOfMySelectedCrop = () => {
     doc.setFontSize(20);
     doc.text(0, 280, "Thank you for using mche");
 
-    doc.save(`${my_selected_crop.name} mche.pdf `);
+    doc.save(`${my_selected_crop.name} mche.pdf`);
   };
 
   const donwloadKiswahili = () => {
@@ -132,7 +132,7 @@ const EachOfMySelectedCrop = () => {
     doc.setFontSize(20);
     doc.text(0, 280, "Asante kwa kutumia mche");
 
-    doc.save(`${my_selected_crop.jina} mche.pdf `);
+    doc.save(`${my_selected_crop.jina} mche.pdf`);
   };
 
   return (
