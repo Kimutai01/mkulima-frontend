@@ -30,6 +30,7 @@ import AdminNavBar from "./components/Navbars/AdminNavBar";
 import Approve from "./pages/AdminDashboard/Approve";
 import CommunityPage from "./pages/Farmer/CommunityPage";
 import EachCommunity from "./pages/Farmer/EachCommunity";
+import AskQuestion from "./pages/Farmer/AskQuestion";
 function App() {
   const [loggedInUserRole, setLoggedInUserRole] = useState("");
   const [loggedInUserId, setLoggedInUserId] = useState("");
@@ -119,6 +120,11 @@ function App() {
                   />
                 }
               />
+              <Route
+                path="/AskQuestion"
+                element={<AskQuestion loggedInUserId={loggedInUserId} />}
+              />
+
               <Route
                 path="/MySelectedCrops"
                 element={<MySelectedCrops loggedInUserId={loggedInUserId} />}
