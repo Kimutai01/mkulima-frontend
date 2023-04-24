@@ -17,21 +17,21 @@ const AskQuestion = () => {
     },
   ]);
 
-  const handleSend = async (message)=>{
-    const newMessage= {
+  const handleSend = async (message) => {
+    const newMessage = {
       message: message,
       sender: "user",
       direction: "outgoing",
-    }
-    const newMessages = [...messages, newMessage]
+    };
+    const newMessages = [...messages, newMessage];
     // update message state
-    setMessages(newMessages)
+    setMessages(newMessages);
 
     //process message to chatgpt
-  }
+  };
   return (
     <div className="pt-28">
-      <div className="h-[80%] w-[70%]">
+      <div className="p-20">
         <MainContainer>
           <ChatContainer>
             <MessageList>
@@ -39,9 +39,7 @@ const AskQuestion = () => {
                 <Message model={message} key={index} />
               ))}
             </MessageList>
-            <MessageInput
-              placeholder="Type message here"
-              onSend={handleSend}
+            <MessageInput placeholder="Type message here" onSend={handleSend} />
           </ChatContainer>
         </MainContainer>
       </div>
