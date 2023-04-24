@@ -9,13 +9,13 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = process.env.REACT_APP_OPEN_AI_API_KEY;
 
 const AskQuestion = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: "Hello I am a farmer",
+      message: "Hello I am your assistant. How can I help you?",
       sender: "ChatBot",
     },
   ]);
@@ -54,7 +54,7 @@ const AskQuestion = () => {
     const systemMessage = {
       role: "system",
       content:
-        "Explain all concepts in details with enthusiasm with the urge to help the farmer the answers they need as accurate as possible. Speak as an agricultural officer.",
+        "Explain all concepts in details with enthusiasm with the urge to help the farmer the answers they need as accurate as possible. Speak as an agricultural officer. give the response in swahili if the question is in swahili. If the question is in english give the response in english.",
     };
 
     const apiRequestBody = {
@@ -94,6 +94,7 @@ const AskQuestion = () => {
         <MainContainer>
           <ChatContainer>
             <MessageList
+              scrollBehavior="smooth"
               typingIndicator={
                 isTyping ? (
                   <TypingIndicator content="ChatBot is typing" />
