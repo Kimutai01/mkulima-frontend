@@ -63,13 +63,13 @@ const SplashScreen = () => {
           showModal ? "blur-sm" : "blur-none"
         }`}
       >
-        <div className="flex justify-center gap-12">
-          <div className="w-1/2 text-center flex justify-center flex-col">
-            <h1 className="text-[#3B841F] text-7xl my-4 kulim-park font-bold">
+        <div className="flex flex-col-reverse md:justify-center gap-12">
+          <div className="w-[100%] md:w-1/2 text-center flex justify-center flex-col">
+            <h1 className="text-[#3B841F] text-6xl md:text-7xl my-4 kulim-park font-bold">
               Welcome to
             </h1>
 
-            <p className="edunswact text-3xl">
+            <p className="edunswact text-2xl md:text-3xl">
               Your ultimate farming support guide!
             </p>
             <p className="my-4 w-[80%] mx-auto kulim-park">
@@ -100,8 +100,8 @@ const SplashScreen = () => {
               </button>
             </div>
           </div>
-          <div>
-            <img src={splash} alt="splash" className="h-[100vh]" />
+          <div className="">
+            <img src={splash} alt="splash" className="md:h-[100vh]" />
           </div>
         </div>
       </div>
