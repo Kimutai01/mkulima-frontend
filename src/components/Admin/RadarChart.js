@@ -35,8 +35,8 @@ const RadarChart = () => {
       });
   }, []);
 
-   const data = {
-    labels: ["Nairobi", "Kiambu", "Mombasa", "Kwale", "Kisumu"],
+  const data = {
+    labels: ["Uasin Gishu", "Kiambu", "Nairobi"],
     datasets: [
       {
         label: "Average Price per kg that farmers are selling their crops for",

@@ -22,7 +22,6 @@ ChartJS.register(
 const VerticalBar = () => {
   const [managementInputs, setManagementInputs] = useState([]);
   const [plantingInputs, setPlantingInputs] = useState([]);
- 
 
   useEffect(() => {
     fetch("http://localhost:3000/top_5_locations_management_inputs", {
@@ -52,8 +51,6 @@ const VerticalBar = () => {
       });
   }, []);
 
-  
-
   const options = {
     responsive: true,
     height: 500,
@@ -68,7 +65,7 @@ const VerticalBar = () => {
     },
   };
 
-  const labels = ["Nairobi", "Kiambu", "Mombasa", "Kwale", "Kisumu"];
+  const labels = ["Uasin Gishu", "Kiambu", "Nairobi"];
 
   const data = {
     labels,
