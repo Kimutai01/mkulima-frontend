@@ -9,7 +9,7 @@ const SplashScreen = () => {
   return (
     <div className="relative px-8">
       {showModal && (
-        <div className="fixed kulim-park inset-0 bg-opacity-50 z-10 flex items-center justify-center w-[200px] mx-auto">
+        <div className="fixed kulim-park inset-0 bg-opacity-50 z-10 flex  items-center justify-center w-[200px] mx-auto">
           <div className="bg-white p-12 rounded-lg">
             <div className="flex justify-end">
               <button
@@ -63,7 +63,7 @@ const SplashScreen = () => {
           showModal ? "blur-sm" : "blur-none"
         }`}
       >
-        <div className="flex flex-col-reverse md:justify-center gap-12">
+        <div className="flex flex-col-reverse md:flex-row md:justify-center gap-12">
           <div className="w-[100%] md:w-1/2 text-center flex justify-center flex-col">
             <h1 className="text-[#3B841F] text-6xl md:text-7xl my-4 kulim-park font-bold">
               Welcome to
